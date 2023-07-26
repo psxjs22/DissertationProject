@@ -1,0 +1,81 @@
+/* Reset some default styles to ensure consistency across browsers */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a custom font for the entire page */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f2f2f2; /* Add a light gray background color */
+  padding: 20px; /* Add padding to the body */
+}
+
+/* Style the header */
+header {
+  background-color: #021691; /* Add a blue background color to the header */
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* Style the main content section */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the paragraphs */
+p {
+  margin-bottom: 15px;
+}
+
+/* Style the links */
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Style the footer */
+footer {
+  background-color: #021691; /* Add a blue background color to the footer */
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* styles.css */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: lightgray; /* Change the color on hover if desired */
+}
+
+
