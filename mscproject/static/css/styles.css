@@ -15,7 +15,7 @@ body {
 
 /* Style the header */
 header {
-  background-color: #021691; /* Add a blue background color to the header */
+  background-color: #000080; /* Add a blue background color to the header */
   padding: 10px;
   color: #fff;
   text-align: center;
@@ -38,6 +38,11 @@ p {
   margin-bottom: 15px;
 }
 
+/* Indent list items */
+body ul {
+  margin-left: 60px; /* For example, 60px indentation */
+}
+
 /* Style the links */
 a {
   color: #007BFF;
@@ -50,32 +55,43 @@ a:hover {
 
 /* Style the footer */
 footer {
-  background-color: #021691; /* Add a blue background color to the footer */
+  background-color: #000080; /* Add a blue background color to the footer */
   color: #fff;
   padding: 10px;
   text-align: center;
 }
 
-/* styles.css */
-
+/* Style the navigation menu */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav li {
-    display: inline-block;
-    margin-right: 20px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 nav li a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 nav li a:hover {
-    color: lightgray; /* Change the color on hover if desired */
+  color: lightgray; /* Change the color on hover if desired */
 }
 
-
+/* Style buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

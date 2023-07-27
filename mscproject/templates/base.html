@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MSc Fake News Project</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>MSc Fake News Project</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <br>
+        {% block content %}
+        {% endblock %}
+        <br>
+    </main>
+    <footer>
+        &copy; {{ year }} MSc Fake News Project. All rights reserved.
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
