@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Homepage</h2>
-    <p>This is some information about the MSc Fake News Project.</p>
-    <!-- Add any additional content here -->
+    <h2>Introduction</h2>
+    <p>This is some information about me and why I'm doing this.</p>
 
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-        Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+        Here's the information about why we're doing this.
     </p>
 
-    <h2>Project Updates</h2>
+    <h2>Get involved</h2>
     <p>
-        Vestibulum dapibus, mauris nec malesuada fames ac turpis velit,
-        rhoncus eu, luctus et interdum adipiscing wisi.
+        If you want to get involved in this project, do this.
     </p>
+    <br>
+    <a href="{% url 'method' %}" >Click here to take part.</a>
+    <br>
 
-    <p>
-        Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-        Nam eget dui. Etiam rhoncus.
-    </p>
 {% endblock %}
+
+

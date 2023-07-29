@@ -9,13 +9,15 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #f2f2f2; /* Add a light gray background color */
+  background-color: #b3cee5; /* Add a light gray background color */
   padding: 20px; /* Add padding to the body */
 }
 
 /* Style the header */
 header {
-  background-color: #000080; /* Add a blue background color to the header */
+  background-image: url("{% static 'images/header-background.jpg' %}"); /* Add path to the header background image */
+  background-size: cover; /* Adjust the image size to cover the header */
+  background-position: center; /* Center the background image */
   padding: 10px;
   color: #fff;
   text-align: center;
@@ -55,7 +57,9 @@ a:hover {
 
 /* Style the footer */
 footer {
-  background-color: #000080; /* Add a blue background color to the footer */
+  background-image: url("{% static 'images/footer-background.jpg' %}"); /* Add path to the footer background image */
+  background-size: cover; /* Adjust the image size to cover the footer */
+  background-position: center; /* Center the background image */
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -107,4 +111,8 @@ videoWrapper iframe {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.next-button:hover, .back-button:hover {
+  background-color: #45a049;
 }

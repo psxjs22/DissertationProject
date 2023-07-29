@@ -11,3 +11,7 @@ function highlightListItem() {
         });
     });
 }
+
+function redirectToMethodPage() {
+    window.location.href = "{% url 'method' %}";
+}

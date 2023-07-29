@@ -8,3 +8,10 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def consent(request):
+    return render(request, 'consent.html')
+
+
+def method(request):
+    return render(request, 'method.html')

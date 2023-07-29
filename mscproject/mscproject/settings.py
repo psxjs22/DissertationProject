@@ -59,7 +59,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'basicapp', 'templates'),
             os.path.join(BASE_DIR, 'tutorialapp', 'templates'),
-            os.path.join(BASE_DIR, 'quizapp', 'templates')
+            os.path.join(BASE_DIR, 'quizapp', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
