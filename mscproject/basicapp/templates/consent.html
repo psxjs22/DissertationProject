@@ -5,6 +5,12 @@
 {% block content %}
   <div class="form-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
     <h2>Consent Form</h2>
+    <p>For this survey, we will not be collecting any information that could be used to identify you.</p>
+    <p>So that we can assess the impact of each version of the tutorial, we will store scores relating to each of the quizzes, but all final results will be pooled and no individual survey responses will be discussed in detail.</p>
+    <p>To ensure that we have collected responses from a diverse range of individuals, we will ask you to provide us with some based demographic information, but this will be anonomysed and stored securely.</p>
+    <p>If at any time you would like to have your information withdrawn from the survey, please get in touch and we will endeavor to remove your information as quickly as possible. </p>
+    <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
+    <p>If you are still happy to proceed, please complete the detials below to confirm that you have understood the details of this study and consent to participating in this study,</p>
     <iframe src="{% static 'pdf/ethics_form.pdf' %}" width="100%" height="500px"></iframe>
     <form method="post">
       {% csrf_token %}
@@ -15,7 +21,7 @@
       <label for="date">Date of Form Submission:</label>
       <input type="date" id="date" name="date" required>
       <br><br>
-      <label for="checkbox">I agree to the terms and conditions</label>
+      <label for="checkbox">I confirm that I have read and understood the information about this study, and I confirm that I am happy to participate.</label>
       <input type="checkbox" id="checkbox" required>
       <br><br>
       <div class="form-buttons">
