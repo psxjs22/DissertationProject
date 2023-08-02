@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
 
-{% load static %}  <!-- Make sure to load the static template tags -->
+{% load static %}
 
 {% block content %}
-  <div class="form-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+  <div class="form-container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
     <h2>Consent Form</h2>
-    <p>For this survey, we will not be collecting any information that could be used to identify you.</p>
-    <p>So that we can assess the impact of each version of the tutorial, we will store scores relating to each of the quizzes, but all final results will be pooled and no individual survey responses will be discussed in detail.</p>
-    <p>To ensure that we have collected responses from a diverse range of individuals, we will ask you to provide us with some based demographic information, but this will be anonomysed and stored securely.</p>
-    <p>If at any time you would like to have your information withdrawn from the survey, please get in touch and we will endeavor to remove your information as quickly as possible. </p>
     <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
-    <p>If you are still happy to proceed, please complete the detials below to confirm that you have understood the details of this study and consent to participating in this study,</p>
+    <p>If you are still happy to proceed, please complete the details below to confirm that you have understood the details of this study and consent to participating in this study.</p>
     <iframe src="{% static 'pdf/ethics_form.pdf' %}" width="100%" height="500px"></iframe>
+    <br><br>
+    <hr>
+    <p><b>I consent to participate in the research and my signature or mark confirms the following:</b></p>
+    <p>I understand the aims and objectives of the research</p>
+    <p>I understand what the research requires me to do</p>
+    <p>I accept the risks of participation</p>
+    <p>I understand what data will be collected and the purposes for which the data will be used</p>
+    <p>I understand safeguards will be put in place to protect my data and my legal rights</p>
+    <p>I understand I will not be identified unless the use of identifiable data has been requested and I consent to it</p>
+    <p>I understand that I can withdraw at any time without explanation</p>
+    <p>I have been able to ask questions about the research, my participation, and my data and my questions have been answered satisfactorily</p>
+    <p>I agree to participate and my participation is voluntary</p>
+    <hr width="300" style="border: 1px dashed #C0C0C0" color="#FFFFFF" >
+
+    {% for message in messages %}
+    <p><em>{{ message.level_tag|title }}:</em> {{ message }}</p>
+    {% endfor %}
+
     <form method="post">
       {% csrf_token %}
-      <br><br>
-      <label for="initials">Initials:</label>
-      <input type="text" id="initials" name="initials" required>
-      <br><br>
-      <label for="date">Date of Form Submission:</label>
-      <input type="date" id="date" name="date" required>
-      <br><br>
-      <label for="checkbox">I confirm that I have read and understood the information about this study, and I confirm that I am happy to participate.</label>
-      <input type="checkbox" id="checkbox" required>
-      <br><br>
-      <div class="form-buttons">
-        <button type="submit">Next</button>
+      {{form.as_p }}
+
+      <p>
+        <input type="submit" value="Submit">
+      </p>
+    </form>
+
       <br>
       <a href="{% url 'home' %}" >I think I've changed my mind, take me back</a>
       <br><br>

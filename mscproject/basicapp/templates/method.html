@@ -2,24 +2,15 @@
 
 {% block content %}
     <h2>The Project</h2>
-    <p>This project aims to see what method is best at teaching people how to identify fake news.</p>
-
-    <h2>The Process</h2>
-    <ol>
-      <li>You'll be asked to read and sign a consent form to ensure you agree to take part and you are aware how your data will be handled.</li>
-      <li>We'll ask you to take a short quiz to get a baseline measure of how well you are able to identify fake news.</li>
-      <li>You'll be asked to either complete a short tutorial, the tutorial will be run in a few different ways, but the information you recieve will be the same in each version.</li>
-      <li>We'll then get you to take the quiz again and we will then use this information to see which strategy works the most effectively.</li>
-      <li>Following the test, you will be provided with a short debriefing form, which you will be able to download.</li>
+    <p>Participating in our study is easy and informative, you'll be asked to read the ethics briefing form and provide your consent to join the study.</p>
+    <p>Next, we'll gather some basic demographic information to better understand our participant group. After that, you'll take a quiz to assess your current ability to identify fake news. Don't worry, it's not a test!</p>
+    <p>We'll then introduce you to our innovative gamified solution, where you'll learn valuable skills through interactive quizzes and engaging content. Once you've completed the learning portion, you'll take the quiz again to see how much you've improved. And for those who are interested, there's an optional debriefing session, where we'll discuss the features that indicate the accuracy of news articles to enhance your understanding further.</p>
+    <p>Your valuable participation will help us in the fight against fake news and contribute to building a more informed digital society!</p>
+    <p>If you have any questions about the project, process, data handling or anything else please <a href="{% url 'contact' %}">get in touch.</a></p>
     </ol>
-    <br><br>
-    <h2>Get involved</h2>
-    <p>
-        If you want to get involved in this project, do this.
-    </p>
     <br>
         <div class="button-wrapper">
-          <a href="{% url 'consent' %}">I understand and am happy to continue.</a>
+          <a href="{% url 'consent_create' %}">I understand and am happy to continue.</a>
           <br><br>
           <a href="{% url 'home' %}">I'd rather not continue, take me back.</a>
 
