@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsentFormForm
 from django.contrib import messages
 from django.http import Http404
-from .models import ConsentForm, Participant
+from .models import ConsentForm, Participant, TreatmentGroup
+import random
 
 
 def home(request):
@@ -29,29 +30,30 @@ def consent_create(request):
             consent_form_instance = form.save()
 
             # Calculate the treatment_group_id based on the current counts of participants in each group
-            # Count the number of participants in each group
             total_groups = 4
-            group_counts = [Participant.objects.filter(treatment_group_id=group_id).count() for group_id in range(1, total_groups + 1)]
+            group_counts = [Participant.objects.filter(treatment_group_id=group_id).count() for group_id in
+                            range(1, total_groups + 1)]
 
             # Find the group with the fewest participants
             min_group_count = min(group_counts)
-            treatment_group_id = group_counts.index(min_group_count) + 1
+            min_group_indices = [i for i, count in enumerate(group_counts) if count == min_group_count]
+
+            # Randomly select one of the groups with the fewest participants
+            treatment_group_id = random.choice(min_group_indices) + 1
 
             # Create a new Participant instance with the linked consent_form_instance and the assigned treatment_group_id
             participant_instance = Participant.objects.create(
-                id=Participant.objects.count() + 1,  # Assign a unique participant ID
                 consent_form=consent_form_instance,
                 treatment_group_id=treatment_group_id
             )
 
             # Redirect to a success page or do something else
+            return render(request, 'demographics.html')
 
     else:
         form = ConsentFormForm()
 
     return render(request, 'consent.html', {'form': form})
-
-
 
 
 def consent_edit(request, pk=None):
@@ -75,7 +77,8 @@ def consent_edit(request, pk=None):
     return render(request, "consent.html", {"method": request.method, "form": form})
 
 
-
+def demographics(request):
+    return render(request, 'demographics.html')
 
 
 

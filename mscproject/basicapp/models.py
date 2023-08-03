@@ -2,7 +2,7 @@ from django.db import models
 
 
 class TreatmentGroup(models.Model):
-    name = models.CharField(max_length=100, primary_key=True)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -19,8 +19,8 @@ class ConsentForm(models.Model):
 
 class Participant(models.Model):
     id = models.AutoField(primary_key=True)
-    treatment_group = models.ForeignKey(TreatmentGroup, on_delete=models.CASCADE)
     consent_form = models.ForeignKey(ConsentForm, on_delete=models.CASCADE, related_name='participants')
+    treatment_group = models.ForeignKey(TreatmentGroup, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f"Participant ID: {self.id}, ConsentForm ID: {self.consent_form.id}"

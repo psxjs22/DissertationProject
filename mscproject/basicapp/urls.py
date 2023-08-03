@@ -8,5 +8,6 @@ urlpatterns = [
     path('method/', views.method, name='method'),
     path('consent/', views.consent_create, name='consent_create'),
     path('consent/<int:pk>/', views.consent_edit, name='consent_edit'),
+    path('demographics/', views.demographics, name='demographics')
     ]
 
