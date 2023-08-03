@@ -18,12 +18,12 @@ class ConsentForm(models.Model):
 
 
 class Participant(models.Model):
-    id = models.AutoField(primary_key=True)  # Auto-incrementing primary key
+    id = models.AutoField(primary_key=True)
     treatment_group = models.ForeignKey(TreatmentGroup, on_delete=models.CASCADE)
-    consent_form = models.ForeignKey(ConsentForm, on_delete=models.CASCADE)
+    consent_form = models.ForeignKey(ConsentForm, on_delete=models.CASCADE, related_name='participants')
 
     def __str__(self):
-        return f"Participant ID: {self.id}, Treatment Group: {self.treatment_group}, Consent: {self.consent_form}"
+        return f"Participant ID: {self.id}, ConsentForm ID: {self.consent_form.id}"
 
 
 class Demographics(models.Model):
