@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Instructions</h2>
+<p>On the next page you will be presented with a series of ten different real-life stories which have each been fact-checked by a professional fact checking organisation. This survey will use articles from UK-based organisation <a href="https://fullfact.org/">FullFact</a> and US-based organisation <a href="https://www.snopes.com/">Snopes</a>.</p>
+    <p>For each story we have presented you with the background, the claim, details from the story and a link to the original article. Once you have looked over the information - using the link to the original story if you think you need more information - we will ask you to decide if the story is real or fake and how confident you are in your decision. You will also have the opportunity to write a few words about what made you think this, but don’t worry, you don’t need to put anything down if you don’t want to.</p>
+    <p>For the purposes of this survey, we will be referring to any articles which have inaccurate or misleading claims as ‘fake news’, regardless or their intention. This means that for the purposes of this survey, if you think an article is wrong or is making inaccurate claims, mark it down as fake. Remember: it doesn’t have to be a blatant lie to be fake news!</p>
+
+    <a href="{% url 'method' %}" >Click here to get started.</a>
+    <br>
+
+{% endblock %}
+
+

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ConsentFormForm
+from .forms import ConsentFormForm, DemographicsForm
 from django.contrib import messages
 from django.http import Http404
-from .models import ConsentForm, Participant, TreatmentGroup
+from .models import ConsentForm, Participant, TreatmentGroup, Demographics
 import random
 
 
@@ -20,6 +20,12 @@ def contact(request):
 
 def method(request):
     return render(request, 'method.html')
+
+
+def quiz_instructions(request, participant_id):
+    # Your view logic here
+    return render(request, 'quiz_instructions.html')
+
 
 
 def consent_create(request):
@@ -48,7 +54,7 @@ def consent_create(request):
             )
 
             # Redirect to a success page or do something else
-            return render(request, 'demographics.html')
+            return redirect('demographics', participant_id=participant_instance.id)
 
     else:
         form = ConsentFormForm()
@@ -77,8 +83,35 @@ def consent_edit(request, pk=None):
     return render(request, "consent.html", {"method": request.method, "form": form})
 
 
-def demographics(request):
-    return render(request, 'demographics.html')
+def demographics(request, participant_id):
+    try:
+        participant_instance = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create')
+
+    if request.method == 'POST':
+        form = DemographicsForm(request.POST)
+        if form.is_valid():
+            # Save the demographics data to the Demographics table
+            demographics_data = form.cleaned_data
+            Demographics.objects.create(
+                participant=participant_instance,
+                gender=demographics_data['gender'],
+                age=demographics_data['age'],
+                ethnicity=demographics_data['ethnicity'],
+                occupation=demographics_data['occupation'],
+                education=demographics_data['education'],
+
+            )
+            # Redirect to a success page after successful form submission
+            return redirect('quiz_instructions', participant_id=participant_instance.id)
+
+    else:
+        form = DemographicsForm()
+
+    return render(request, 'demographics.html', {'form': form, 'participant': participant_instance})
+
+
 
 
 

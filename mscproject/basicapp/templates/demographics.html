@@ -1,8 +1,38 @@
+
+
+
 {% extends 'base.html' %}
 
 {% block content %}
     <h2>Please tell us a bit about yourself</h2>
-    <p>For monitoring puroses, please complete this short anonomysed form to tell us a bit about you.</p>
-    <!-- Add any additional content here -->
-{% endblock %}
+    <p>For monitoring purposes, please complete this short anonymous form to tell us a bit about you.</p>
 
+    <form method="post">
+        {% csrf_token %}
+        <label>Gender
+            {{ form.gender }}
+        </label>
+        <br>
+        <label>Age
+            {{ form.age }}
+        </label>
+        <br>
+        <label>Ethnicity
+            {{ form.ethnicity }}
+        </label>
+        <br>
+        <label>Occupation
+            {{ form.occupation }}
+        </label>
+        <br>
+        <label>Highest Level of Education
+            {{ form.education }}
+        </label>
+
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</p>
+
+{% endblock %}
