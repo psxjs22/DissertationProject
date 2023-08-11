@@ -23,8 +23,13 @@ def method(request):
 
 
 def quiz_instructions(request, participant_id):
-    # Your view logic here
-    return render(request, 'quiz_instructions.html')
+    try:
+        participant_instance = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create')
+
+    return render(request, 'quiz_instructions.html', {'participant': participant_instance})
+
 
 
 
@@ -113,5 +118,11 @@ def demographics(request, participant_id):
 
 
 
+def quiz(request, participant_id):
+    try:
+        participant_instance = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create')
 
+    return render(request, 'quiz.html', {'participant': participant_instance})
 

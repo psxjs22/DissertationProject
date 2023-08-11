@@ -1,12 +1,8 @@
-<form method="post">
-  {% csrf_token %}
-  <h2>Question {{ question_data.number }}:</h2>
-  <p>{{ question_data.question_text }}</p>
-  <!-- Render the options as radio buttons -->
-  {% for option in question_data.options %}
-    <input type="radio" id="option_{{ option.id }}" name="answer" value="{{ option.id }}"
-      {% if previous_answer and previous_answer.answer.id == option.id %}checked{% endif %}>
-    <label for="option_{{ option.id }}">{{ option.option_text }}</label><br>
-  {% endfor %}
-  <button type="submit">Submit</button>
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Quiz</h2>
+
+{% endblock %}
+
+
