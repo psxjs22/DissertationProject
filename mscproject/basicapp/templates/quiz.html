@@ -1,8 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Quiz</h2>
+    <div id="quiz-container">
+        <h2>Quiz</h2>
+        <hr>
+        <form id="response-form" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.response.id_for_label }}">Do you think this was real or fake?</label>
+                <div class="horizontal-options">
+                    {{ form.response }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.confidence.id_for_label }}">How confident were you in your decision?</label>
+                <div class="horizontal-options">
+                    {{ form.confidence }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.reason.id_for_label }}">If you can, would you be able to share why you thought this in one short sentence (optional)?</label>
+                {{ form.reason }}
+            </div>
+
+            <button type="submit">Next</button>
+        </form>
+    </div>
+
 
 {% endblock %}
-
-

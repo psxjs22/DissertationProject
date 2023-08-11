@@ -81,3 +81,22 @@ class DemographicsForm(forms.Form):
     ethnicity = forms.ChoiceField(choices=ethnicity_choices)
     occupation = forms.ChoiceField(choices=occupation_choices)
     education = forms.ChoiceField(choices=education_choices)
+
+
+class QuizResponseForm(forms.Form):
+    RESPONSE_CHOICES = [
+        ('real', 'Real'),
+        ('fake', 'Fake'),
+    ]
+
+    CONFIDENCE_CHOICES = [
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    ]
+
+    response = forms.ChoiceField(choices=RESPONSE_CHOICES, widget=forms.RadioSelect)
+    confidence = forms.ChoiceField(choices=CONFIDENCE_CHOICES, widget=forms.RadioSelect)
+    reason = forms.CharField(widget=forms.Textarea, required=False)

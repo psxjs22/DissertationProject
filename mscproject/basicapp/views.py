@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ConsentFormForm, DemographicsForm
+from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm
 from django.contrib import messages
 from django.http import Http404
 from .models import ConsentForm, Participant, TreatmentGroup, Demographics
@@ -124,5 +124,6 @@ def quiz(request, participant_id):
     except Participant.DoesNotExist:
         return redirect('consent_create')
 
-    return render(request, 'quiz.html', {'participant': participant_instance})
+    form = QuizResponseForm()
+    return render(request, 'quiz.html', {'participant_id': participant_id, 'form': form})
 

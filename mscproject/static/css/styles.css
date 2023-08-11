@@ -90,8 +90,26 @@ button {
   cursor: pointer;
 }
 
+.light-blue-button {
+    background-color: lightblue;
+    font-weight: bold;
+    padding: 10px 20px; /* Adjust the padding values as needed */
+    border: 2px solid blue; /* Add a border of 2px width with blue color */
+    font-size: 18px; /* Increase the font size as desired */
+}
+
+
 .next-button:hover, .back-button:hover {
   background-color: #45a049;
 }
 
-/* Responsive styles can be added as needed */
+.horizontal-options {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+}
+
+.horizontal-options input[type="radio"] {
+    flex: 1;
+    margin: 0;
+}
+
