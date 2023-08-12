@@ -1,0 +1,112 @@
+[
+  {
+    "model": "basicapp.question",
+    "pk": 1,
+    "fields": {
+      "summary": "In June 2020 the children’s charity Barnardo’s published a press release, which was then shared by UK newspapers, including the Guardian and the Daily Mirror. In the articles, the charity stated that the number of children needing foster care during the Coronavirus pandemic had risen by 44%.",
+      "image": "{% static 'images/quiz/barnardos_fostering.png' %}",
+      "details": "The newspaper articles quoted both the charity and the Department for Education, who provided a statement about the importance of foster carers, measures put in place to make it easier to find placements for children and the steps that people could take to become a foster carer.\n\nIn support of their claims, the charity stated that “From March 1st - April 23rd 2020, there were 2,349 referrals to Barnardo’s fostering services in England, Wales and Northern Ireland, a figure which shot up from 1,629 for the same period in 2019. Meanwhile the number of enquiries from people looking to become foster parents for the charity fell from 302 to 161 - a dramatic 47% drop.”****\n\nSee full press release here: https://www.barnardos.org.uk/news/barnardos-declares-state-emergency-number-children-needing-foster-care-during-coronavirus",
+      "authenticity": "fake",
+      "explanation": "This article is inaccurate. \n\nWhile the story uses credible sources and figures to back up their statement, if you look carefully, the charity states that referrals to Barnardo's fostering services have increased, while those looking to become foster carers has fallen.\n\nWhile these figures are likely correct, they do not necessarily mean that the number of children needing foster care has risen by the stated amount, as Barnardo's are not the only organisation to receive referrals.\n\nThis means that while their figures may reflect wider trends, it’s impossible to draw the conclusion that the number of children needing foster care has increased by 44%.\n\nBy looking at government statistics for the years 2019-2020, it is possible to see that the number of children in care increased from 78,140 to 80,080 - an increase of 2% - and the number of children starting to be looked after reducing from 31,770 to 30,970 - a decrease of 3%. See full data here:https://explore-education-statistics.service.gov.uk/find-statistics/children-looked-after-in-england-including-adoptions/2020. \n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/education/barnardos-foster-care-coronavirus/."
+    }
+  },
+  {
+    "model": "basicapp.question",
+    "pk": 2,
+    "fields": {
+      "summary": "In July 2023, on the BBC’s Politics Live Show, Reform UK’s* politician Alex Phillips made the claim that the UK is one of the only countries in the world where you don’t have to pass an English language proficiency test before enrolling at university.",
+      "image": "{% static 'images/quiz/alexphillips_university.png' %}",
+      "details": "The UK politician sat on a panel alongside Conservative MP Bim Afolami, Labour Peer Francis O’Grady, Reform UK’s Alex Phillips and the Observer’s Sonia Sodha; the debate was hosted by presenter Jo Coburn.\n\nWhile on-air, during a segment about the Conservative’s call for an immigration cut, Ms Phillips interrupted the Conservative MP Bim Afolami as he discussed the impact of international students on the immigration figures. \n\nThe claim was unchallenged and the MP resumed his point following the interruption; shortly after, the debate moved on to Rishi Sunak’s position on the environment and no further comment was made on Ms Phillips claim. \n\nWatch the full episode here (relevant section 25:15 - 26:15 ): https://www.youtube.com/watch?v=Z4D-DhGBEAc\n\n-\n\n**Renamed in January 2021 from the Brexit Party to Reform UK.*",
+      "authenticity": "fake",
+      "explanation": "The claim made while on-air was misleading.\n\nAccording to government guidance, international applicants must prove their English proficiency either through passing a Secure English Language Test (SELT) from an approved provider or having a recognised UK qualification gained through study at a UK school before the age of 18.\n\nIf studying at degree level or above, the Higher Education Provider can assess an applicant’s level of English using their own test, however this must still be equivalent to the appropriate level on the Common European Framework of Reference for Languages (CEFR) scale.\n\nThere is an exemption for student from a list of specified countries, however these are countries in which English is an official language, and students must still meet the universities own English language requirements. Full guidance can be found here: https://www.gov.uk/student-visa/knowledge-of-english. \n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/news/alex-phillips-reform-english-tests/"
+    }
+  },
+   {
+    "model": "basicapp.question",
+    "pk": 3,
+    "fields": {
+      "summary": "In December 2020, an image was shared on Twitter showing a bag of carrots from Tesco which were grown in Chernobyl, the site of the 1986 nuclear power station disaster. ",
+      "image": "{% static 'images/quiz/twitter_carrots.png' %}",
+      "details": "The initial image was shared by @MikeNeaverson but has been shared by others on both Twitter and Facebook and is still making the rounds on social media today. The original tweet can be viewed here: https://twitter.com/MikeNeaverson/status/1341103212112318467. ",
+      "authenticity": "fake",
+      "explanation": "This image is a fake and has been photoshopped after it was taken to change the grown in location. \n\nThe original creator has since stated in a follow up tweet that this was a hoax and intended as satire. See original tweet here: https://twitter.com/MikeNeaverson/status/1341103212112318467, and follow up tweet here: https://twitter.com/MikeNeaverson/status/1341139119787954176. \n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/online/carrots-tesco-chernobyl/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 4,
+    "fields": {
+      "summary": "A number of videos circulating on Facebook and TikTok in which health and wellness influencers have discussed the health benefits of borax, explaining how it can help reduce inflammation, arthritis and some auto-immune conditions if taken regularly.",
+      "image": "{% static 'images/quiz/tiktok_borax.png' %}",
+      "details": "The original story was posted by the account ‘rootsofhealing’ and since then, many influencers have taken to TikTok to review the product and share their experience with the product, explaining how much they take and how it has helped them. Videos listed under ‘borax health benefit’ have been viewed 261.4M times. \n\nThe original account that posted the story can be found here: https://www.tiktok.com/@rootsofhealing?lang=en",
+      "authenticity": "fake",
+      "explanation": "This is an inaccurate and potentially dangerous claim.\n\nBorax is recognised as “toxic to reproduction” by the European Chemical Agency and can also cause a number of side effects including stomach problems, headaches and dizziness and if consumed in particularly large quantities it can also cause kidney failure and even death.\n\nThe scientific evidence supporting claims that borax has an anti-inflammatory effect in humans comes from a very small evidence base, based in test tube and animal studies under specific environmental conditions. Furthermore, evidence for the role of borax in improving bone health comes from a single 1897 study which studied the use of boron supplements (one substance found in borax) on perimenopausal women, however, the study didn’t seem to measure any actual bone loss.\n\nFor a full explanation, please see the fact checked article here: [https://fullfact.org/online/carrots-tesco-chernobyl/](https://fullfact.org/health/borax-toxic-arthritis-inflammation-hormones/)"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 5,
+    "fields": {
+      "summary": "In July 2023 a large iceberg was spotted off the coast of Newfoundland, Canada. In a viral video circulating on social media, a clip of a giant iceberg can be seen approaching the coast of Newfoundland in Canada.",
+      "image": "{% static 'images/quiz/twitter_iceberg.png' %}",
+      "details": "The viral video was circulating on different social media platforms between July and August 2023.",
+      "authenticity": "real",
+      "explanation": "This story is true!\n\nThe image appears to be genuine, with other user posting images and videos of the iceberg from different angles.\n\nNewfoundland has previously been known for its large icebergs, with tourists flocking to the area in 2017 to catch a glimpse of another large iceberg.\n\nFor a full explanation, please see the fact checked article here: https://www.snopes.com/fact-check/giant-iceberg-newfoundland-canada/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 6,
+    "fields": {
+      "summary": "In July 2023 a series of images went viral on social media depicting a woman sat next to a a series of giant crocheted cats.",
+      "image": "{% static 'images/quiz/facebook_crochet.png' %}",
+      "details": "The story was shared on multiple platforms and reached audiences in across the globe.",
+      "authenticity": "fake",
+      "explanation": "This story is fake!\n\nThe images are AI generated and came from the Instagram account @ai.artandcat. The user is known for sharing AI-generated pictures, and this formed part of her portfolio. There are however some tell tale signs that the images have been generated by AI if you look closely; such as the women looking different in each photo and out of proportion hands and feet. \n\nFor a full explanation, please see the fact checked article here: https://www.snopes.com/fact-check/elderly-women-giant-crocheted-cats/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 7,
+    "fields": {
+      "summary": "During the summer of 2022 a number of social media users shared pictures of a woman exercising, explaining how the device in front of the woman was a machine that enabled you to pay for a bus ticket in Romania by doing 20 squats.",
+      "image": "{% static 'images/quiz/twitter_squats.png' %}",
+      "details": "The story was shared around the world, with this innovative way of encouraging people to stay healthy going viral across multiple social media platforms.",
+      "authenticity": "real",
+      "explanation": "This story is true!\n\nFor a period of time this scheme was run in Romania, however organisers only ran this campaign in one city for a limited time period; so it is unlikely to still be running.\n\nFor a full explanation, please see the fact checked article here: https://www.snopes.com/fact-check/bus-ticket-20-squats/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 8,
+    "fields": {
+      "summary": "In March 2021, posts on social media showed a police flyer endorsing the use of a personal security app called Hollie Guard, which was designed to help if someone feels unsafe. The app allows users to record audio and visual information and automatically save and send this to emergency contacts so that they can call the emergency services on behalf of the user. ",
+      "image": "{% static 'images/quiz/facebook_police.png' %}",
+      "details": "Social media posts show a poster printed on A4 paper promoting the app and encouraging people of all ages to consider using it.",
+      "authenticity": "real",
+      "explanation": "This story is true.\n\nPolice from a range of forces across the UK have endorsed and publicised the app.\n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/crime/hollie-guard-app/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 9,
+    "fields": {
+      "summary": "In July 2023, during the Paris riots, posts on social media, with videos of zebras, lions and elephants running down the street, with users blaming rioters for letting them loose on the city.",
+      "image": "{% static 'images/quiz/twitter_zebra.png' %}",
+      "details": "The videos have been viewed and shared millions of times of TikTok and Twitter with a number of different clips of zoo animals circulating online.",
+      "authenticity": "fake",
+      "explanation": "This story is not true.\n\nParis Zoo has tackled claims head on and have released a statement explaining how no animals had escaped, or been set free, and this was an example of misleading information.\n\nThe source of some of the videos has not been found, however, some of the videos have been identified as videos from February 2020, in which a number of circus animals escaped into the Paris suburb of Chennevières-sur-Marne.\n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/online/zebra-lion-street-paris-zoo-riots/"
+    }
+   },
+   {
+    "model": "basicapp.question",
+    "pk": 10,
+    "fields": {
+      "summary": "In July 2023, a number of news outlets in the UK carried stories about how driving in flip flops could land you with a fine and points on your licence.",
+      "image": "{% static 'images/quiz/thesun_flipflops.png' %}",
+      "details": "In each of the stories, it is clarified that the fine is not due to a specific ‘flip flop offence’ but instead it may be captured under the “driving without due care and attention” and “not being in proper control” of the vehicle. ",
+      "authenticity": "real",
+      "explanation": "This story is true!\n\nAs explained in each of the stories, it is not necessarily illegal to drive in flip flops, but it could cause you to fall foul of other driving laws; landing you with a hefty fine and points on your licence.\n\nFor a full explanation, please see the fact checked article here: https://fullfact.org/online/online-driving-in-flipflops-penalties/"
+    }
+   }
+  ]

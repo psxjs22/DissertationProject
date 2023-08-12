@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm
 from django.contrib import messages
 from django.http import Http404
-from .models import ConsentForm, Participant, TreatmentGroup, Demographics
+from .models import ConsentForm, Participant, TreatmentGroup, Demographic
 import random
 
 
@@ -41,7 +41,7 @@ def consent_create(request):
             consent_form_instance = form.save()
 
             # Calculate the treatment_group_id based on the current counts of participants in each group
-            total_groups = 4
+            total_groups = 3
             group_counts = [Participant.objects.filter(treatment_group_id=group_id).count() for group_id in
                             range(1, total_groups + 1)]
 
@@ -98,14 +98,14 @@ def demographics(request, participant_id):
         form = DemographicsForm(request.POST)
         if form.is_valid():
             # Save the demographics data to the Demographics table
-            demographics_data = form.cleaned_data
-            Demographics.objects.create(
+            demographic_data = form.cleaned_data
+            Demographic.objects.create(
                 participant=participant_instance,
-                gender=demographics_data['gender'],
-                age=demographics_data['age'],
-                ethnicity=demographics_data['ethnicity'],
-                occupation=demographics_data['occupation'],
-                education=demographics_data['education'],
+                gender=demographic_data['gender'],
+                age=demographic_data['age'],
+                ethnicity=demographic_data['ethnicity'],
+                occupation=demographic_data['occupation'],
+                education=demographic_data['education'],
 
             )
             # Redirect to a success page after successful form submission

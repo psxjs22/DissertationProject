@@ -1,13 +1,11 @@
 from django.contrib import admin
 
-from basicapp.models import TreatmentGroup, ConsentForm, Participant, Demographics, Quiz, Question, Answers, Responses
+from basicapp.models import TreatmentGroup, ConsentForm, Participant, Demographic, Question, Response
 
 
 admin.site.register(TreatmentGroup)
 admin.site.register(ConsentForm)
 admin.site.register(Participant)
-admin.site.register(Demographics)
-admin.site.register(Quiz)
+admin.site.register(Demographic)
 admin.site.register(Question)
-admin.site.register(Answers)
-admin.site.register(Responses)
+admin.site.register(Response)

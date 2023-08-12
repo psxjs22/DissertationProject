@@ -1,5 +1,5 @@
 from django import forms
-from .models import ConsentForm, Participant
+from .models import ConsentForm, Participant, Demographic
 
 
 class ConsentFormForm(forms.ModelForm):

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "basicapp.treatmentGroup",
+    "pk": 1,
+    "fields": {
+      "name": "Control",
+      "description": "Tutorial only, no gamification strategies"
+    }
+  },
+  {
+    "model": "basicapp.treatmentGroup",
+    "pk": 2,
+    "fields": {
+      "name": "GS1",
+      "description": "Tutorial with gamification strategy XXX"
+    }
+  },
+  {
+    "model": "basicapp.treatmentGroup",
+    "pk": 3,
+    "fields": {
+      "name": "GS2",
+      "description": "Tutorial with gamification strategy XXX"
+    }
+  }
+]
