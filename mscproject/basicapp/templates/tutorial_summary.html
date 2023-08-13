@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ tutorial.title }}</h2>
+    <p>{{ tutorial.summary }}</p>
+    <br>
+    <br>
+    <p>Treatment Group: {{ treatment_group }}</p>
+    {% if treatment_group == "Control" %}
+        <p>Control</p>
+    {% elif treatment_group == "GS1" %}
+        <p>GS1</p>
+    {% else %}
+        <p>GS2</p>
+    {% endif %}
+    <form action="{% url 'home' %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary indented-button">Home</button>
+    </form>
+{% endblock %}

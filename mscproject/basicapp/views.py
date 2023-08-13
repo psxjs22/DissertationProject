@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm
 from django.contrib import messages
+from django.conf import settings
 from django.http import Http404, JsonResponse
-from .models import ConsentForm, Participant, TreatmentGroup, Demographic, Question, Response
+from .models import ConsentForm, Participant, TreatmentGroup, Demographic, Question, Response, Tutorial
 import random
-
+import json
+import os
 
 def home(request):
     return render(request, 'home.html')
@@ -170,3 +172,45 @@ def post_quiz(request, participant_id):
         return redirect('consent_create.html')
 
     return render(request, 'post_quiz.html', {'participant': participant})
+
+
+def tutorial_video(request, participant_id, tutorial_id):
+    try:
+        participant = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create.html')
+
+    json_file_path = os.path.join(settings.BASE_DIR, 'basicapp/fixtures/tutorial.json')
+    with open(json_file_path) as json_file:
+        tutorials = json.load(json_file)
+
+    tutorial = tutorials[tutorial_id - 1]  # Adjust the index for 0-based indexing
+
+    page_title = tutorial['fields']['page_title']
+    intro_text = tutorial['fields']['intro_text']
+    video_url = tutorial['fields']['video_url']
+
+    next_page_url = f"/tutorial_summary/{participant_id}/{tutorial_id}/"
+
+    return render(request, 'tutorial_video.html', {
+        'participant': participant,
+        'page_title': page_title,
+        'intro_text': intro_text,
+        'video_url': video_url,
+        'next_page_url': next_page_url,
+    })
+
+def tutorial_summary(request, participant_id, tutorial_id):
+    try:
+        participant = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create.html')
+
+    tutorial = Tutorial.objects.get(id=tutorial_id)
+    treatment_group = participant.treatment_group.name
+
+    return render(request, 'tutorial_summary.html', {
+        'participant': participant,
+        'tutorial': tutorial,
+        'treatment_group': treatment_group,
+    })

@@ -1,0 +1,47 @@
+[
+  {
+    "model": "basicapp.tutorial",
+    "pk": 1,
+    "fields": {
+      "page_title": "Topic 1",
+      "intro_text": "What is fake news and where did it come from?",
+      "video_url": "https://www.youtube.com/embed/lyNkbltT6aw?si=nNvfsu-UdnvG0Krp"
+    }
+  },
+  {
+    "model": "basicapp.tutorial",
+    "pk": 2,
+    "fields": {
+      "page_title": "Topic 2",
+      "intro_text": "Where is fake news found?",
+      "video_url": "https://www.youtube.com/embed/7744UCjnhLQ?si=u_5ZY-SzWuP2iJUi"
+    }
+  },
+  {
+    "model": "basicapp.tutorial",
+    "pk": 3,
+    "fields": {
+      "page_title": "Topic 3",
+      "intro_text": "How do you know if a source is credible?",
+      "video_url": "https://www.youtube.com/embed/MCtv7CDN3BY?si=TfnKBn9A8M05mKo8"
+    }
+  },
+  {
+    "model": "basicapp.tutorial",
+    "pk": 4,
+    "fields": {
+      "page_title": "Topic 4",
+      "intro_text": "How do you spot fake news?",
+      "video_url": "https://www.youtube.com/embed/B1oZhL-Rxqw?si=BHC5uy1fBAqMS0I3"
+    }
+  },
+  {
+    "model": "basicapp.tutorial",
+    "pk": 5,
+    "fields": {
+      "page_title": "Knowledge Check",
+      "intro_text": "Let's go through some examples",
+      "video_url": "https://www.youtube.com/embed/XdYaHKQcd6o?si=c6YlsZ9Z6-smMBZ2"
+    }
+  }
+]

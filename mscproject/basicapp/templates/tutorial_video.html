@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h2>{{ page_title }}</h2>
+    <p>{{ intro_text }}</p>
+    <br>
+    <div class="video-container">
+        <iframe width="840" height="472.5" src="{{ video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <br>
+    <form action="{% url 'tutorial_summary' participant_id=participant.id tutorial_id=1 %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary indented-button">Next</button>
+    </form>
+</div>
+{% endblock %}
