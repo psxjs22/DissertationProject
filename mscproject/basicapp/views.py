@@ -150,9 +150,23 @@ def submit_response(request, participant_id, question_number, question_attempt):
             # Calculate the next question number
             next_question_number = question_number + 1
 
-            # Redirect to the next question page
-            return redirect('quiz', participant_id=participant_id, question_number=next_question_number, question_attempt=question_attempt)
+            total_questions = Question.objects.count()  # Get the total number of questions
+            if next_question_number > total_questions:
+                # All questions have been answered, redirect to the post-quiz page
+                return redirect('post_quiz', participant_id=participant_id)
+            else:
+                # Continue to the next question page
+                return redirect('quiz', participant_id=participant_id, question_number=next_question_number,
+                                question_attempt=question_attempt)
 
     # Handle form errors or GET requests
     return redirect('quiz', participant_id=participant_id, question_number=question_number, question_attempt=question_attempt)
 
+
+def post_quiz(request, participant_id):
+    try:
+        participant = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create.html')
+
+    return render(request, 'post_quiz.html', {'participant': participant})

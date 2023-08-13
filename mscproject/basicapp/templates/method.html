@@ -9,12 +9,12 @@
     <p>If you have any questions about the project, process, data handling or anything else please <a href="{% url 'contact' %}">get in touch.</a></p>
     </ol>
     <br>
-        <div class="button-wrapper">
-          <a href="{% url 'consent_create' %}">I understand and am happy to continue.</a>
-          <br><br>
-          <a href="{% url 'home' %}">I'd rather not continue, take me back.</a>
-
-        </div>
+    <form action="{% url 'consent_create' %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary indented-button">I understand and am happy to continue</button>
+    </form>
+    <br>
+    <p>&nbsp;&nbsp;<a href="{% url 'home' %}">I'd rather not continue, take me back.</a></p>
     <br>
 
 {% endblock %}

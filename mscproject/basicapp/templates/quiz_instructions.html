@@ -8,7 +8,7 @@
 
     <form action="{% url 'quiz' participant_id=participant.id question_number=1 question_attempt=1 %}" method="post">
         {% csrf_token %}
-        <button type="submit">Start Quiz</button>
+        <button type="submit" class="btn btn-primary indented-button">Start Quiz</button>
     </form>
 
 

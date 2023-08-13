@@ -9,30 +9,34 @@
 
     <form method="post">
         {% csrf_token %}
-        <label>Gender
-            {{ form.gender }}
-        </label>
-        <br>
-        <label>Age
-            {{ form.age }}
-        </label>
-        <br>
-        <label>Ethnicity
-            {{ form.ethnicity }}
-        </label>
-        <br>
-        <label>Occupation
-            {{ form.occupation }}
-        </label>
-        <br>
-        <label>Highest Level of Education
-            {{ form.education }}
-        </label>
+        <div class="table-responsive">
+            <table class=""table>
+                <label>Gender
+                    {{ form.gender }}
+                </label>
+                <br><br>
+                <label>Age
+                    {{ form.age }}
+                </label>
+                <br><br>
+                <label>Ethnicity
+                    {{ form.ethnicity }}
+                </label>
+                <br><br>
+                <label>Occupation
+                    {{ form.occupation }}
+                </label>
+                <br><br>
+                <label>Highest Level of Education
+                    {{ form.education }}
+                </label>
 
-        <br>
-        <input type="submit" value="Submit">
+                <br><br>
+                <input type="submit" value="Submit">
+            </table>
+        </div>
     </form>
-
+    <br>
     <p>For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</p>
 
 {% endblock %}

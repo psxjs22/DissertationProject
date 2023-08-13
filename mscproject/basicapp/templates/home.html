@@ -6,11 +6,13 @@
     <p>Our study uses gamification, which means we apply game elements to make learning engaging and effective. Through interactive quizzes and challenges, you'll gain valuable skills in spotting fake news like a pro!</p>
     <p>We've created a user-friendly website where adults can participate in our study. You'll find all the information you need to make informed choices and contribute to our research.</p>
     <p>By joining our pilot study, you'll be helping us understand how to best combat fake news for adults. Together, we can create a more informed society and empower individuals to be critical thinkers. Join us now and become a part of the fight against fake news!</p>
-
-
-    <h2>Get involved</h2>
-    <a href="{% url 'method' %}" >Click here to take part.</a>
     <br>
+
+    <form action="{% url 'method' %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary indented-button">Click here to get involved</button>
+    </form>
+
 
 {% endblock %}
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import ConsentForm, Participant, Demographic
+from .models import ConsentForm, Participant, Demographic, Response
 
 
 class ConsentFormForm(forms.ModelForm):
@@ -97,6 +97,22 @@ class QuizResponseForm(forms.Form):
         (5, '5'),
     ]
 
-    response = forms.ChoiceField(choices=RESPONSE_CHOICES, widget=forms.RadioSelect)
-    confidence = forms.ChoiceField(choices=CONFIDENCE_CHOICES, widget=forms.RadioSelect)
-    reason = forms.CharField(widget=forms.Textarea, required=False)
+    response = forms.ChoiceField(
+        choices=[('Real', 'Real'), ('Fake', 'Fake')],
+        widget=forms.RadioSelect,
+        label='Do you think the article was more likely to be real or fake?'
+    )
+    confidence = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'class': 'form-control'}),
+        label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?'
+    )
+    reason = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
+        label='Provide a brief reason for your choice (optional).',
+        required=False
+    )
+
+    class Meta:
+        model = Response
+        fields = ['response', 'confidence', 'reason']
+

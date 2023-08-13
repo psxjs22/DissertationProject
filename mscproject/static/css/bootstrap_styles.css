@@ -1,0 +1,23 @@
+/* Set primary, secondary, and tertiary colors to shades of blue */
+:root {
+    --primary-color: #0039AD;       /* Blue */
+    --secondary-color: #DAE3F7;     /* Gray */
+    --tertiary-color: #CEF582;      /* Teal */
+}
+
+/* Apply the colors to specific elements */
+.navbar {
+    background-color: var(--primary-color);
+    max-height: 100px;
+}
+
+
+
+.main-content {
+    padding: 100px; /* Adjust the value as needed */
+}
+
+
+.indented-button {
+    margin-left: 40px; /* Adjust the value as needed */
+}

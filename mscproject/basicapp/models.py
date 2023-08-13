@@ -46,6 +46,7 @@ class Question(models.Model):
     summary = models.TextField()
     image = models.CharField(max_length=255)
     details = models.TextField()
+    link = models.TextField()
     authenticity = models.CharField(max_length=10)
     explanation = models.TextField()
 
