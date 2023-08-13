@@ -113,3 +113,7 @@ button {
     margin: 0;
 }
 
+.response-form-container {
+    text-align: center;
+    margin: 20px auto; /* Adjust the margin as needed */
+}

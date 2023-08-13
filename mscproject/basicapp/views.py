@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm
 from django.contrib import messages
-from django.http import Http404
-from .models import ConsentForm, Participant, TreatmentGroup, Demographic
+from django.http import Http404, JsonResponse
+from .models import ConsentForm, Participant, TreatmentGroup, Demographic, Question, Response
 import random
 
 
@@ -20,17 +20,6 @@ def contact(request):
 
 def method(request):
     return render(request, 'method.html')
-
-
-def quiz_instructions(request, participant_id):
-    try:
-        participant_instance = Participant.objects.get(id=participant_id)
-    except Participant.DoesNotExist:
-        return redirect('consent_create')
-
-    return render(request, 'quiz_instructions.html', {'participant': participant_instance})
-
-
 
 
 def consent_create(request):
@@ -117,13 +106,53 @@ def demographics(request, participant_id):
     return render(request, 'demographics.html', {'form': form, 'participant': participant_instance})
 
 
-
-def quiz(request, participant_id):
+def quiz_instructions(request, participant_id):
     try:
-        participant_instance = Participant.objects.get(id=participant_id)
+        participant = Participant.objects.get(id=participant_id)
     except Participant.DoesNotExist:
-        return redirect('consent_create')
+        return redirect('consent_create.html')
+
+    return render(request, 'quiz_instructions.html', {'participant': participant})
+
+
+def quiz(request, participant_id, question_number, question_attempt):
+    try:
+        question = Question.objects.get(id=question_number)
+    except Question.DoesNotExist:
+        return redirect('consent_create.html')
 
     form = QuizResponseForm()
-    return render(request, 'quiz.html', {'participant_id': participant_id, 'form': form})
+
+    return render(request, 'quiz.html', {
+        'participant_id': participant_id,
+        'question': question,
+        'question_attempt': question_attempt,
+        'form': form,
+    })
+
+
+def submit_response(request, participant_id, question_number, question_attempt):
+    if request.method == 'POST':
+        form = QuizResponseForm(request.POST)
+        if form.is_valid():
+            # Process and save the response data to the model
+            response_data = form.cleaned_data
+            response = Response(
+                participant_id=participant_id,
+                question_id=question_number,
+                response=response_data['response'],  # Replace 'response' with the actual field name
+                confidence=response_data['confidence'],  # Replace 'confidence' with the actual field name
+                reason=response_data['reason'],  # Replace 'reason' with the actual field name
+                attempt=question_attempt,
+            )
+            response.save()
+
+            # Calculate the next question number
+            next_question_number = question_number + 1
+
+            # Redirect to the next question page
+            return redirect('quiz', participant_id=participant_id, question_number=next_question_number, question_attempt=question_attempt)
+
+    # Handle form errors or GET requests
+    return redirect('quiz', participant_id=participant_id, question_number=question_number, question_attempt=question_attempt)
 

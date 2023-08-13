@@ -1,34 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="quiz-container">
-        <h2>Quiz</h2>
-        <hr>
-        <form id="response-form" method="post">
-            {% csrf_token %}
+    <h2>{{ question.summary }}</h2>
+    <br>
+    <img src="{{ question.image.url }}" alt="{{ question.summary }}">
+    <br>
+    <p>{{ question.details }}</p>
+    <br>
+    <hr>
+    <br>
 
-            <div class="form-group">
-                <label for="{{ form.response.id_for_label }}">Do you think this was real or fake?</label>
-                <div class="horizontal-options">
-                    {{ form.response }}
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="{{ form.confidence.id_for_label }}">How confident were you in your decision?</label>
-                <div class="horizontal-options">
-                    {{ form.confidence }}
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="{{ form.reason.id_for_label }}">If you can, would you be able to share why you thought this in one short sentence (optional)?</label>
-                {{ form.reason }}
-            </div>
-
-            <button type="submit">Next</button>
-        </form>
-    </div>
-
+<form method="post" class="response-form-container" action="{% url 'submit_response' participant_id=participant_id question_number=question.id question_attempt=question_attempt %}">
+    {% csrf_token %}
+    <input type="hidden" name="participant_id" value="{{ participant_id }}">
+    <input type="hidden" name="question_number" value="{{ question.id }}">
+    <input type="hidden" name="question_attempt" value="{{ question_attempt }}">
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
 
 {% endblock %}
