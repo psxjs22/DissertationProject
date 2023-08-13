@@ -16,6 +16,8 @@ urlpatterns = [
     path('post_quiz/<int:participant_id>/', views.post_quiz, name='post_quiz'),
     path('tutorial_video/<int:participant_id>/<int:tutorial_id>/', views.tutorial_video, name='tutorial_video'),
     path('tutorial_summary/<int:participant_id>/<int:tutorial_id>/', views.tutorial_summary, name='tutorial_summary'),
+    path('recapuiz_instructions/<int:participant_id>/', views.recapquiz_instructions, name='recapquiz_instructions'),
+    path('finished/', views.finished, name='finished'),
 ]
 
 

@@ -24,7 +24,7 @@
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
         {% elif tutorial.title == "Knowledge Check" %}
             <p>Knowledge Check</p>
-            {% url 'method' as next_page %}
+            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
         {% endif %}
     {% elif treatment_group == "GS1" %}
         <p>GS1</p>
@@ -42,7 +42,7 @@
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
         {% elif tutorial.title == "Knowledge Check" %}
             <p>Knowledge Check</p>
-            {% url 'method' as next_page %}
+            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
         {% endif %}
     {% else %}
         <p>GS2</p>
@@ -60,7 +60,7 @@
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
         {% elif tutorial.title == "Knowledge Check" %}
             <p>Knowledge Check</p>
-            {% url 'method' as next_page %}
+            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
         {% endif %}
     {% endif %}
     <form action="{{ next_page }}" method="get">

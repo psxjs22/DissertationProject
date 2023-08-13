@@ -114,7 +114,7 @@ def quiz_instructions(request, participant_id):
     except Participant.DoesNotExist:
         return redirect('consent_create.html')
 
-    return render(request, 'quiz_instructions.html', {'participant': participant})
+    return render(request, 'quiz_instructions.html', {'participant': participant })
 
 
 def quiz(request, participant_id, question_number, question_attempt):
@@ -155,7 +155,10 @@ def submit_response(request, participant_id, question_number, question_attempt):
             total_questions = Question.objects.count()  # Get the total number of questions
             if next_question_number > total_questions:
                 # All questions have been answered, redirect to the post-quiz page
-                return redirect('post_quiz', participant_id=participant_id)
+                if question_attempt == 1:
+                    return redirect('post_quiz', participant_id=participant_id)
+                elif question_attempt == 2:
+                    return redirect('finished')
             else:
                 # Continue to the next question page
                 return redirect('quiz', participant_id=participant_id, question_number=next_question_number,
@@ -216,3 +219,17 @@ def tutorial_summary(request, participant_id, tutorial_id):
         'tutorial': tutorial,
         'treatment_group': treatment_group,
     })
+
+
+def recapquiz_instructions(request, participant_id):
+    try:
+        participant = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        return redirect('consent_create.html')
+
+    return render(request, 'recapquiz_instructions.html', {'participant': participant})
+
+
+def finished(request):
+    return render(request, 'finished.html')
+

@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if question_attempt == 1 %}
+        <p>First Quiz</p>
+    {% elif question_attempt == 2 %}
+        <p>Recap Quiz</p>
+    {% endif %}
     <h2>Scenario</h2>
     <p>{{ question.summary }}</p>
     <br>
@@ -9,6 +14,7 @@
     <p>{{ question.details }}</p>
     <br>
     <p>{{ question.link }}</p>
+    <br>
     <hr style="border: 1px dashed #C0C0C0" color="#FFFFFF">
     <br>
     <h2>Quiz</h2>
