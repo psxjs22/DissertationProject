@@ -6,15 +6,65 @@
     <br>
     <br>
     <p>Treatment Group: {{ treatment_group }}</p>
+    <p>Topic: {{ tutorial }}</p>
+
     {% if treatment_group == "Control" %}
         <p>Control</p>
+        {% if tutorial.title == "Topic 1" %}
+            <p>Topic 1</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% elif tutorial.title == "Topic 2" %}
+            <p>Topic 2</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
+        {% elif tutorial.title == "Topic 3" %}
+            <p>Topic 3</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
+        {% elif tutorial.title == "Topic 4" %}
+            <p>Topic 4</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
+        {% elif tutorial.title == "Knowledge Check" %}
+            <p>Knowledge Check</p>
+            {% url 'method' as next_page %}
+        {% endif %}
     {% elif treatment_group == "GS1" %}
         <p>GS1</p>
+        {% if tutorial.title == "Topic 1" %}
+            <p>Topic 1</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% elif tutorial.title == "Topic 2" %}
+            <p>Topic 2</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
+        {% elif tutorial.title == "Topic 3" %}
+            <p>Topic 3</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
+        {% elif tutorial.title == "Topic 4" %}
+            <p>Topic 4</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
+        {% elif tutorial.title == "Knowledge Check" %}
+            <p>Knowledge Check</p>
+            {% url 'method' as next_page %}
+        {% endif %}
     {% else %}
         <p>GS2</p>
+        {% if tutorial.title == "Topic 1" %}
+            <p>Topic 1</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% elif tutorial.title == "Topic 2" %}
+            <p>Topic 2</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
+        {% elif tutorial.title == "Topic 3" %}
+            <p>Topic 3</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
+        {% elif tutorial.title == "Topic 4" %}
+            <p>Topic 4</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
+        {% elif tutorial.title == "Knowledge Check" %}
+            <p>Knowledge Check</p>
+            {% url 'method' as next_page %}
+        {% endif %}
     {% endif %}
-    <form action="{% url 'home' %}" method="get">
+    <form action="{{ next_page }}" method="get">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary indented-button">Home</button>
+        <button type="submit" class="btn btn-primary indented-button">Next Page</button>
     </form>
 {% endblock %}

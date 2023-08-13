@@ -190,14 +190,15 @@ def tutorial_video(request, participant_id, tutorial_id):
     intro_text = tutorial['fields']['intro_text']
     video_url = tutorial['fields']['video_url']
 
-    next_page_url = f"/tutorial_summary/{participant_id}/{tutorial_id}/"
+    tutorial = (Tutorial.objects.get(id=tutorial_id))
+    tutorial = tutorial.page_title
 
     return render(request, 'tutorial_video.html', {
         'participant': participant,
         'page_title': page_title,
         'intro_text': intro_text,
         'video_url': video_url,
-        'next_page_url': next_page_url,
+        'tutorial': tutorial,
     })
 
 def tutorial_summary(request, participant_id, tutorial_id):
@@ -206,7 +207,8 @@ def tutorial_summary(request, participant_id, tutorial_id):
     except Participant.DoesNotExist:
         return redirect('consent_create.html')
 
-    tutorial = Tutorial.objects.get(id=tutorial_id)
+    tutorial = (Tutorial.objects.get(id=tutorial_id))
+    tutorial = tutorial.page_title
     treatment_group = participant.treatment_group.name
 
     return render(request, 'tutorial_summary.html', {

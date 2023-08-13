@@ -9,7 +9,25 @@
         <iframe width="840" height="472.5" src="{{ video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <br>
-    <form action="{% url 'tutorial_summary' participant_id=participant.id tutorial_id=1 %}" method="get">
+
+    {% if tutorial.title == "Topic 1" %}
+        <p>Topic 1</p>
+        {% url 'tutorial_summary' participant_id=participant.id tutorial_id=1 as next_page %}
+    {% elif tutorial.title == "Topic 2" %}
+        <p>Topic 2</p>
+        {% url 'tutorial_summary' participant_id=participant.id tutorial_id=2 as next_page %}
+    {% elif tutorial.title == "Topic 3" %}
+        <p>Topic 3</p>
+        {% url 'tutorial_summary' participant_id=participant.id tutorial_id=3 as next_page %}
+    {% elif tutorial.title == "Topic 4" %}
+        <p>Topic 4</p>
+        {% url 'tutorial_summary' participant_id=participant.id tutorial_id=4 as next_page %}
+    {% elif tutorial.title == "Knowledge Check" %}
+        <p>Knowledge Check</p>
+        {% url 'tutorial_summary' participant_id=participant.id tutorial_id=5 as next_page %}
+    {% endif %}
+
+    <form action="{{ next_page }}" method="get">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">Next</button>
     </form>
