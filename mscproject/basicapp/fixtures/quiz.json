@@ -4,7 +4,7 @@
     "pk": 10,
     "fields": {
       "summary": "In June 2020 the children’s charity Barnardo’s published a press release, which was then shared by UK newspapers, including the Guardian and the Daily Mirror. In the articles, the charity stated that the number of children needing foster care during the Coronavirus pandemic had risen by 44%.",
-      "image": "/static/images/quiz/barnardos_fostering.png",
+      "image": "images/quiz/barnardos_fostering.png",
       "details": "The newspaper articles quoted both the charity and the Department for Education, who provided a statement about the importance of foster carers, measures put in place to make it easier to find placements for children and the steps that people could take to become a foster carer.In support of their claims, the charity stated that 'From March 1st - April 23rd 2020, there were 2,349 referrals to Barnardo’s fostering services in England, Wales and Northern Ireland, a figure which shot up from 1,629 for the same period in 2019. Meanwhile the number of enquiries from people looking to become foster parents for the charity fell from 302 to 161 - a dramatic 47% drop.",
       "link": "See full press release here: https://www.barnardos.org.uk/news/barnardos-declares-state-emergency-number-children-needing-foster-care-during-coronavirus",
       "authenticity": "fake",
@@ -16,7 +16,7 @@
     "pk": 7,
     "fields": {
       "summary": "In July 2023, on the BBC’s Politics Live Show, Reform UK’s* politician Alex Phillips made the claim that the UK is one of the only countries in the world where you don’t have to pass an English language proficiency test before enrolling at university.",
-      "image": "/static/images/quiz/alexphillips_university.png",
+      "image": "images/quiz/alexphillips_university.png",
       "details": "The UK politician sat on a panel alongside Conservative MP Bim Afolami, Labour Peer Francis O’Grady, Reform UK’s Alex Phillips and the Observer’s Sonia Sodha; the debate was hosted by presenter Jo Coburn.While on-air, during a segment about the Conservative’s call for an immigration cut, Ms Phillips interrupted the Conservative MP Bim Afolami as he discussed the impact of international students on the immigration figures. The claim was unchallenged and the MP resumed his point following the interruption; shortly after, the debate moved on to Rishi Sunak’s position on the environment and no further comment was made on Ms Phillips claim. **Renamed in January 2021 from the Brexit Party to Reform UK.*",
       "link": "Watch the full episode here (relevant section 25:15 - 26:15 ): https://www.youtube.com/watch?v=Z4D-DhGBEAc",
       "authenticity": "fake",
@@ -28,7 +28,7 @@
     "pk": 1,
     "fields": {
       "summary": "In December 2020, an image was shared on Twitter showing a bag of carrots from Tesco which were grown in Chernobyl, the site of the 1986 nuclear power station disaster. ",
-      "image": "/static/images/quiz/twitter_carrots.png",
+      "image": "images/quiz/twitter_carrots.png",
       "details": "The initial image was shared by @MikeNeaverson but has been shared by others on both Twitter and Facebook and is still making the rounds on social media today.",
       "link": "The original tweet can be viewed here: https://twitter.com/MikeNeaverson/status/1341103212112318467.",
       "authenticity": "fake",
@@ -40,7 +40,7 @@
     "pk": 8,
     "fields": {
       "summary": "A number of videos circulating on Facebook and TikTok in which health and wellness influencers have discussed the health benefits of borax, explaining how it can help reduce inflammation, arthritis and some auto-immune conditions if taken regularly.",
-      "image": "/static/images/quiz/tiktok_borax.png",
+      "image": "images/quiz/tiktok_borax.png",
       "details": "The original story was posted by the account ‘rootsofhealing’ and since then, many influencers have taken to TikTok to review the product and share their experience with the product, explaining how much they take and how it has helped them. Videos listed under ‘borax health benefit’ have been viewed 261.4M times.",
       "link": "The original account that posted the story can be found here: https://www.tiktok.com/@rootsofhealing?lang=en",
       "authenticity": "fake",
@@ -52,7 +52,7 @@
     "pk": 9,
     "fields": {
       "summary": "In July 2023 a large iceberg was spotted off the coast of Newfoundland, Canada. In a viral video circulating on social media, a clip of a giant iceberg can be seen approaching the coast of Newfoundland in Canada.",
-      "image": "/static/images/quiz/twitter_iceberg.png",
+      "image": "images/quiz/twitter_iceberg.png",
       "details": "The viral video was circulating on different social media platforms between July and August 2023.",
       "link": "",
       "authenticity": "real",
@@ -64,7 +64,7 @@
     "pk": 6,
     "fields": {
       "summary": "In July 2023 a series of images went viral on social media depicting a woman sat next to a a series of giant crocheted cats.",
-      "image": "/static/images/quiz/facebook_crochet.png",
+      "image": "images/quiz/facebook_crochet.png",
       "details": "The story was shared on multiple platforms and reached audiences in across the globe.",
       "link": "",
       "authenticity": "fake",
@@ -76,7 +76,7 @@
     "pk": 2,
     "fields": {
       "summary": "During the summer of 2022 a number of social media users shared pictures of a woman exercising, explaining how the device in front of the woman was a machine that enabled you to pay for a bus ticket in Romania by doing 20 squats.",
-      "image": "/static/images/quiz/twitter_squats.png",
+      "image": "images/quiz/twitter_squats.png",
       "details": "The story was shared around the world, with this innovative way of encouraging people to stay healthy going viral across multiple social media platforms.",
       "link": "",
       "authenticity": "real",
@@ -88,7 +88,7 @@
     "pk": 4,
     "fields": {
       "summary": "In March 2021, posts on social media showed a police flyer endorsing the use of a personal security app called Hollie Guard, which was designed to help if someone feels unsafe. The app allows users to record audio and visual information and automatically save and send this to emergency contacts so that they can call the emergency services on behalf of the user. ",
-      "image": "/static/images/quiz/facebook_police.png",
+      "image": "images/quiz/facebook_police.png",
       "details": "Social media posts show a poster printed on A4 paper promoting the app and encouraging people of all ages to consider using it.",
       "link": "",
       "authenticity": "real",
@@ -100,7 +100,7 @@
     "pk": 3,
     "fields": {
       "summary": "In July 2023, during the Paris riots, posts on social media, with videos of zebras, lions and elephants running down the street, with users blaming rioters for letting them loose on the city.",
-      "image": "/static/images/quiz/twitter_zebra.png",
+      "image": "images/quiz/twitter_zebra.png",
       "details": "The videos have been viewed and shared millions of times of TikTok and Twitter with a number of different clips of zoo animals circulating online.",
       "link": "",
       "authenticity": "fake",
@@ -112,7 +112,7 @@
     "pk": 5,
     "fields": {
       "summary": "In July 2023, a number of news outlets in the UK carried stories about how driving in flip flops could land you with a fine and points on your licence.",
-      "image": "/static/images/quiz/thesun_flipflops.png",
+      "image": "images/quiz/thesun_flipflops.png",
       "details": "In each of the stories, it is clarified that the fine is not due to a specific ‘flip flop offence’ but instead it may be captured under the “driving without due care and attention” and “not being in proper control” of the vehicle. ",
       "link": "",
       "authenticity": "real",
