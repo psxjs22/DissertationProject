@@ -1,70 +1,103 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{{ tutorial.title }}</h2>
-    <p>{{ tutorial.summary|linebreaksbr|safe }}</p>
-    <br>
-    <br>
-    <p>Treatment Group: {{ treatment_group }}</p>
-    <p>Topic: {{ tutorial }}</p>
+<div style="max-width: 95%; margin: 0 auto;">
+    {% if tutorial.title == "Topic 1" %}
+        <h3>Topic 1 Recap</h3>
+        <ul>
+            <li>What is fake news</li>
+            <li>Where did fake news come from</li>
+        </ul>
+        <h3>Up Next</h3>
+        {% if treatment_group == "Control" %}
+            <p>Topic 2: Finding fake news</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% elif treatment_group == "GS1" %}
+            <p>Let's play a game to see what you have learnt (GS1)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% elif treatment_group == "GS2" %}
+            <p>Let's play a game to see what you have learnt (GS2)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
+        {% endif %}
 
-    {% if treatment_group == "Control" %}
-        <p>Control</p>
-        {% if tutorial.title == "Topic 1" %}
-            <p>Topic 1</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
-        {% elif tutorial.title == "Topic 2" %}
-            <p>Topic 2</p>
+    {% elif tutorial.title == "Topic 2" %}
+        <h3>Topic 2 Recap</h3>
+        <ul>
+            <li>Where is fake news found?</li>
+            <li>How does fake news spread?</li>
+        </ul>
+        <h3>Up Next</h3>
+        {% if treatment_group == "Control" %}
+            <p>Topic 3: Finding credible sources</p>
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% elif tutorial.title == "Topic 3" %}
-            <p>Topic 3</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
-        {% elif tutorial.title == "Topic 4" %}
-            <p>Topic 4</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
-        {% elif tutorial.title == "Knowledge Check" %}
-            <p>Knowledge Check</p>
-            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
+        {% elif treatment_group == "GS1" %}
+             <p>Let's play a game to see what you have learnt (GS1)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
+        {% elif treatment_group == "GS2" %}
+            <p>Let's play a game to see what you have learnt (GS2)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
         {% endif %}
-    {% elif treatment_group == "GS1" %}
-        <p>GS1</p>
-        {% if tutorial.title == "Topic 1" %}
-            <p>Topic 1</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
-        {% elif tutorial.title == "Topic 2" %}
-            <p>Topic 2</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% elif tutorial.title == "Topic 3" %}
-            <p>Topic 3</p>
+
+    {% elif tutorial.title == "Topic 3" %}
+        <h3>Topic 3 Recap</h3>
+        <ul>
+            <li>Where is fake news found?</li>
+            <li>How does fake news spread?</li>
+        </ul>
+        <h3>Up Next</h3>
+        {% if treatment_group == "Control" %}
+            <p>Topic 4: How to spot fake news</p>
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
-        {% elif tutorial.title == "Topic 4" %}
-            <p>Topic 4</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
-        {% elif tutorial.title == "Knowledge Check" %}
-            <p>Knowledge Check</p>
-            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
+        {% elif treatment_group == "GS1" %}
+            <p>Let's play a game to see what you have learnt (GS1)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
+        {% elif treatment_group == "GS2" %}
+            <p>Let's play a game to see what you have learnt (GS2)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
         {% endif %}
-    {% else %}
-        <p>GS2</p>
-        {% if tutorial.title == "Topic 1" %}
-            <p>Topic 1</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
-        {% elif tutorial.title == "Topic 2" %}
-            <p>Topic 2</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% elif tutorial.title == "Topic 3" %}
-            <p>Topic 3</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
-        {% elif tutorial.title == "Topic 4" %}
-            <p>Topic 4</p>
+
+    {% elif tutorial.title == "Topic 4" %}
+        <h3>Topic 4 Recap</h3>
+        <ul>
+            <li>Where is fake news found?</li>
+            <li>How does fake news spread?</li>
+        </ul>
+        <h3>Up Next</h3>
+        {% if treatment_group == "Control" %}
+            <p>Knowledge Check: Let's put what you have learnt into practice</p>
             {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
-        {% elif tutorial.title == "Knowledge Check" %}
-            <p>Knowledge Check</p>
+        {% elif treatment_group == "GS1" %}
+            <p>Let's play a game to see what you have learnt (GS1)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
+        {% elif treatment_group == "GS2" %}
+            <p>Let's play a game to see what you have learnt (GS2)</p>
+            {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
+        {% endif %}
+
+    {% elif tutorial.title == "Knowledge Check" %}
+        <h3>Knowledge Check Recap</h3>
+        <ul>
+            <li>What does fake news look like?</li>
+            <li>What should I look for when assessing news stories?</li>
+        </ul>
+        <h3>Up Next</h3>
+        {% if treatment_group == "Control" %}
+            <p>Recap Quiz: Let's see what you have learnt</p>
+            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
+        {% elif treatment_group == "GS1" %}
+            <p>Let's play a game to see what you have learnt (GS1)</p>
+            {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
+        {% elif treatment_group == "GS2" %}
+            <p>Let's play a game to see what you have learnt (GS2)</p>
             {% url 'recapquiz_instructions' participant_id=participant.id as next_page %}
         {% endif %}
     {% endif %}
+
+
     <form action="{{ next_page }}" method="get">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">Next Page</button>
     </form>
+</div>
+
 {% endblock %}

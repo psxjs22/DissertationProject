@@ -9,15 +9,15 @@
     <br>
     <img src="{% static question.image %}" alt="Image associated with scenario" style="max-width: 60%; margin: 0 auto;">
     <br><br><br>
-    <p><i>{{ question.link|linebreaksbr|safe }}</i></p>
+    <p><i>{{ question.link|safe }}</i></p>
     <br>
     <hr style="border: 1px dashed #C0C0C0; color: #FFFFFF; max-width: 60%; margin: 0 auto;">
     <br>
     <h2>Explanation</h2>
     <br>
-    <p>{{ question.authenticity|linebreaksbr|safe }}</p>
+    <p><span style="text-transform: uppercase; font-weight: bold; color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};">{{ question.authenticity}}</span></p>
     <br>
-    <p>{{ question.explanation|linebreaksbr|safe }}</p>
+    <p>{{ question.explanation|safe }}</p>
 
     {% with next_question=question.id|add:1 %}
     <form action="{% url 'quiz_debrief' participant_id=participant.id tutorial_id=next_question %}" method="post">

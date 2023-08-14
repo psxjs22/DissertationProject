@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div style="max-width: 95%; margin: 0 auto;">
     <h2>The Project</h2>
     <p>Participating in our study is easy and informative, you'll be asked to read the ethics briefing form and provide your consent to join the study.</p>
     <p>Next, we'll gather some basic demographic information to better understand our participant group. After that, you'll take a quiz to assess your current ability to identify fake news. Don't worry, it's not a test!</p>
@@ -16,5 +17,5 @@
     <br>
     <p>&nbsp;&nbsp;<a href="{% url 'home' %}">I'd rather not continue, take me back.</a></p>
     <br>
-
+</div>
 {% endblock %}

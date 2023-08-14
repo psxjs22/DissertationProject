@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div style="max-width: 95%; margin: 0 auto;">
     <h2>Instructions</h2>
     <p>On the next page you will be presented with a series of ten different real-life stories which have each been fact-checked by a professional fact checking organisation. This survey will use articles from UK-based organisation <a href="https://fullfact.org/" target="_blank">FullFact</a> and US-based organisation <a href="https://www.snopes.com/" target="_blank">Snopes</a>.</p>
     <p>For each story we have presented you with the background, the claim, details from the story and a link to the original article. Once you have looked over the information - using the link to the original story if you think you need more information - we will ask you to decide if the story is real or fake and how confident you are in your decision. You will also have the opportunity to write a few words about what made you think this, but don’t worry, you don’t need to put anything down if you don’t want to.</p>
@@ -10,10 +11,7 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">Start Quiz</button>
     </form>
-
-
-    <br>
-
+</div>
 {% endblock %}
 
 

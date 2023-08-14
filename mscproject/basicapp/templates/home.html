@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div style="max-width: 95%; margin: 0 auto;">
     <h2>Introduction</h2>
     <p>Welcome to our pilot study! In today's digital world, fake news is a serious concern that can influence how adults perceive information and make decisions. We are here to help you identify fake news and tackle misinformation with our innovative approach.</p>
     <p>Our study uses gamification, which means we apply game elements to make learning engaging and effective. Through interactive quizzes and challenges, you'll gain valuable skills in spotting fake news like a pro!</p>
@@ -12,7 +13,7 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">Click here to get involved</button>
     </form>
-
+</div>
 
 {% endblock %}
 
