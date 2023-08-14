@@ -142,9 +142,9 @@ def submit_response(request, participant_id, question_number, question_attempt):
             response = Response(
                 participant_id=participant_id,
                 question_id=question_number,
-                response=response_data['response'],  # Replace 'response' with the actual field name
-                confidence=response_data['confidence'],  # Replace 'confidence' with the actual field name
-                reason=response_data['reason'],  # Replace 'reason' with the actual field name
+                response=response_data['response'],
+                confidence=response_data['confidence'],
+                reason=response_data['reason'],
                 attempt=question_attempt,
             )
             response.save()
@@ -152,13 +152,13 @@ def submit_response(request, participant_id, question_number, question_attempt):
             # Calculate the next question number
             next_question_number = question_number + 1
 
-            total_questions = Question.objects.count()  # Get the total number of questions
+            total_questions = Question.objects.count()
             if next_question_number > total_questions:
-                # All questions have been answered, redirect to the post-quiz page
+                # All questions have been answered, redirect based on attempt
                 if question_attempt == 1:
                     return redirect('post_quiz', participant_id=participant_id)
                 elif question_attempt == 2:
-                    return redirect('finished')
+                    return redirect('quiz_debrief', participant_id=participant_id, tutorial_id=1)
             else:
                 # Continue to the next question page
                 return redirect('quiz', participant_id=participant_id, question_number=next_question_number,
@@ -166,6 +166,7 @@ def submit_response(request, participant_id, question_number, question_attempt):
 
     # Handle form errors or GET requests
     return redirect('quiz', participant_id=participant_id, question_number=question_number, question_attempt=question_attempt)
+
 
 
 def post_quiz(request, participant_id):
@@ -233,3 +234,26 @@ def recapquiz_instructions(request, participant_id):
 def finished(request):
     return render(request, 'finished.html')
 
+
+def quiz_debrief(request, participant_id, tutorial_id):
+    try:
+        participant = Participant.objects.get(id=participant_id)
+        question = Question.objects.get(id=tutorial_id)
+    except Question.DoesNotExist:
+        return redirect('consent_create.html')
+
+    form = QuizResponseForm()
+
+    next_question_number = tutorial_id + 1
+
+    total_questions = Question.objects.count()
+    if next_question_number > total_questions:
+        # All questions have been answered, redirect to the post-quiz page
+        return redirect('finished')
+    else:
+        return render(request, 'quiz_debrief.html', {
+            'participant': participant,
+            'question': question,
+            'next_question_number': next_question_number,
+            'form': form,
+        })

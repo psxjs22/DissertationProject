@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>{{ tutorial.title }}</h2>
-    <p>{{ tutorial.summary }}</p>
+    <p>{{ tutorial.summary|linebreaksbr|safe }}</p>
     <br>
     <br>
     <p>Treatment Group: {{ treatment_group }}</p>

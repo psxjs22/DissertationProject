@@ -18,6 +18,7 @@ urlpatterns = [
     path('tutorial_summary/<int:participant_id>/<int:tutorial_id>/', views.tutorial_summary, name='tutorial_summary'),
     path('recapuiz_instructions/<int:participant_id>/', views.recapquiz_instructions, name='recapquiz_instructions'),
     path('finished/', views.finished, name='finished'),
+    path('quiz_debrief/<int:participant_id>/<int:tutorial_id>/', views.quiz_debrief, name='quiz_debrief'),
 ]
 
 
