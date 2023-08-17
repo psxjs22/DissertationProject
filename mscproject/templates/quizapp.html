@@ -10,13 +10,13 @@
       padding: 0;
       font-family: Poppins, Helvetica, sans-serif;
       box-sizing: border-box;
-      background: #001e4d;
+      background: white;
     }
     .app{
       background: #fff;
       width: 90%;
       max-width: 600px;
-      margin: 100px auto 0;
+      margin: 10px auto 0;
       border-radius: 10px;
       padding: 30px;
     }
@@ -67,10 +67,10 @@
       cursor: pointer;
       display: none;
     }
-    .correct{
+    .quiz-button-correct{
       background: #9aeabc;
     }
-    .incorrect{
+    .quiz-button-incorrect{
       background: #ff9393;
     }
 
@@ -79,7 +79,7 @@
 
 <body>
   <div class="app">
-    <h1>Topic 1 Quiz</h1>
+    <h1>Recap Quiz</h1>
     <div class ="quiz">
       <h2 id="question">Question goes here</h2>
       <div id="answer-buttons">
@@ -167,7 +167,7 @@
     currentQuestion.answers.forEach(answer => {
       const button = document.createElement("button");
       button.innerHTML = answer.text;
-      button.classList.add("btn");
+      button.classList.add("btn", "quiz-button");
       answerButtons.appendChild(button);
       if(answer.correct){
         button.dataset.correct = answer.correct;
@@ -187,10 +187,10 @@
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct ==="true";
     if(isCorrect){
-      selectedBtn.classList.add("correct");
+      selectedBtn.classList.add("quiz-button-correct");
       score++;
     }else{
-      selectedBtn.classList.add("incorrect");
+      selectedBtn.classList.add("quiz-button-incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
       if(button.dataset.correct === "true"){
