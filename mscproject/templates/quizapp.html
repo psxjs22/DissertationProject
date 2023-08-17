@@ -73,6 +73,11 @@
     .quiz-button-incorrect{
       background: #ff9393;
     }
+    .icon {
+      margin-left: 10px;
+      font-size: 20px;
+      vertical-align: middle;
+    }
 
   </style>
 </head>
@@ -183,23 +188,46 @@
     }
   }
 
-  function selectAnswer(e){
+  function selectAnswer(e) {
     const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct ==="true";
-    if(isCorrect){
-      selectedBtn.classList.add("quiz-button-correct");
-      score++;
-    }else{
-      selectedBtn.classList.add("quiz-button-incorrect");
+    const isCorrect = selectedBtn.dataset.correct === "true";
+
+    // Show icon based on the correctness
+    const icon = document.createElement("span");
+    icon.classList.add("icon");
+    if (isCorrect) {
+        icon.textContent = "✔"; // Tick icon for correct answers
+        selectedBtn.appendChild(icon);
+        selectedBtn.classList.add("quiz-button-correct");
+        score++;
+    } else {
+        icon.textContent = "❌"; // Cross icon for incorrect answers
+        selectedBtn.appendChild(icon);
+        selectedBtn.classList.add("quiz-button-incorrect");
+
+        // Find and display a tick next to the correct answer
+        const correctBtn = Array.from(answerButtons.children).find(button => button.dataset.correct === "true");
+        const correctIcon = document.createElement("span");
+        correctIcon.classList.add("icon");
+        correctIcon.textContent = "✔"; // Tick icon for correct answer
+        correctBtn.appendChild(correctIcon);
+        correctBtn.classList.add("quiz-button-correct");
     }
+
+    // Disable all answer buttons
     Array.from(answerButtons.children).forEach(button => {
-      if(button.dataset.correct === "true"){
-        button.classList.add("correct");
-      }
-      button.disabled = true;
+        if (button.dataset.correct === "true") {
+            button.classList.add("quiz-button-correct");
+        }
+        button.disabled = true;
     });
+
+    // Display next button
     nextButton.style.display = "block";
-  }
+}
+
+
+
 
 function showScore(){
   resetState();
