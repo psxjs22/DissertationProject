@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: Poppins, Helvetica, sans-serif;
+      box-sizing: border-box;
+      background: white;
+    }
+    .app{
+      background: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 10px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+    }
+    .app h1{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 600;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 18px;
+      color: #001e4d;
+      font-weight: 600;
+    }
+    .btn{
+      background: #fff;
+      color: #222;
+      font-weight: 500;
+      width: 100%;
+      border: 1px solid #222;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: left;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn:hover:not([disabled]){
+      background: #222;
+      color: #fff;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+    #next-btn{
+      background: #001e4d;
+      color: #fff;
+      font-weight: 500;
+      width: 150px;
+      border: 0;
+      padding: 10px;
+      margin: 20px auto 0;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+    .quiz-button-correct{
+      background: #9aeabc;
+    }
+    .quiz-button-incorrect{
+      background: #ff9393;
+    }
+    .icon {
+      margin-left: 10px;
+      font-size: 20px;
+      vertical-align: middle;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <h1>Recap Quiz</h1>
+    <div class ="quiz">
+      <h2 id="question">Question goes here</h2>
+      <div id="answer-buttons">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+      <button id="next-btn">Next</button>
+    </div>
+
+  </div>
+
+<script>
+  const questions = [
+    {
+      question: "What's a potential consequence of sharing misleading content?",
+      answers: [
+        {text: "It improves your reputation", correct: false},
+        {text: "It helps you gain followers", correct: false},
+        {text: "It can contribute to confusion and misinformation", correct: true},
+        {text: "It guarantees high-quality content", correct: false}
+      ]
+    },
+    {
+      question: "Why is it important to scrutinize facts and figures in a news story?",
+      answers: [
+        {text: "They are usually irrelevant", correct: false},
+        {text: "They might be used to draw unsupported conclusions", correct: true},
+        {text: "They only appear in opinion pieces", correct: false},
+        {text: "They always come from reliable sources", correct: false}
+      ]
+    },
+    {
+      question: "What's a good course of action if you're uncertain about the accuracy of information?",
+      answers: [
+        {text: "Share the information to see others' reactions", correct: false},
+        {text: "Look up additional sources to confirm", correct: true},
+        {text: "Ignore the information and move on", correct: false},
+        {text: "Assume the information is correct", correct: false}
+      ]
+    },
+    {
+      question: "What might be the intention of an article that seeks to spark outrage?",
+      answers: [
+        {text: "To provide a balanced debate", correct: false},
+        {text: "To present unbiased facts", correct: false},
+        {text: "To generate clicks and traffic", correct: true},
+        {text: "To educate readers with nuanced perspectives", correct: false}
+      ]
+    },
+    {
+      question: "How might a news story with a genuine intention differ from a misleading one?",
+      answers: [
+        {text: "It would use emotional language", correct: false},
+        {text: "It would use sensational headlines", correct: false},
+        {text: "It would provide facts and expert insights", correct: true},
+        {text: "It would rely solely on personal anecdotes", correct: false}
+      ]
+    },
+  ];
+
+  const questionElement = document.getElementById("question");
+  const answerButtons = document.getElementById("answer-buttons");
+  const nextButton = document.getElementById("next-btn");
+
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+  }
+
+  function showQuestion(){
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+
+    currentQuestion.answers.forEach(answer => {
+      const button = document.createElement("button");
+      button.innerHTML = answer.text;
+      button.classList.add("btn", "quiz-button");
+      answerButtons.appendChild(button);
+      if(answer.correct){
+        button.dataset.correct = answer.correct;
+      }
+      button.addEventListener("click", selectAnswer);
+    });
+  }
+
+  function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+      answerButtons.removeChild(answerButtons.firstChild);
+    }
+  }
+
+  function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+
+    // Show icon based on the correctness
+    const icon = document.createElement("span");
+    icon.classList.add("icon");
+    if (isCorrect) {
+        icon.textContent = "✔"; // Tick icon for correct answers
+        selectedBtn.appendChild(icon);
+        selectedBtn.classList.add("quiz-button-correct");
+        score++;
+    } else {
+        icon.textContent = "❌"; // Cross icon for incorrect answers
+        selectedBtn.appendChild(icon);
+        selectedBtn.classList.add("quiz-button-incorrect");
+
+        // Find and display a tick next to the correct answer
+        const correctBtn = Array.from(answerButtons.children).find(button => button.dataset.correct === "true");
+        const correctIcon = document.createElement("span");
+        correctIcon.classList.add("icon");
+        correctIcon.textContent = "✔"; // Tick icon for correct answer
+        correctBtn.appendChild(correctIcon);
+        correctBtn.classList.add("quiz-button-correct");
+    }
+
+    // Disable all answer buttons
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("quiz-button-correct");
+        }
+        button.disabled = true;
+    });
+
+    // Display next button
+    nextButton.style.display = "block";
+}
+
+
+
+
+function showScore(){
+  resetState();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+}
+
+  function handleNextButton(){
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length){
+      showQuestion();
+    }else{
+      showScore();
+    }
+  }
+
+  nextButton.addEventListener("click", ()=>{
+    if(currentQuestionIndex < questions.length){
+      handleNextButton();
+    }else{
+      startQuiz();
+    }
+  });
+
+  startQuiz();
+
+</script>
+
+</body>
+
+</html>
