@@ -25,22 +25,27 @@
         {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
 
     {% elif tutorial.title == "Topic 2" %}
-        <h3>Topic 2 Recap</h3>
+    <h3>Topic 2 Recap</h3>
+    {% if treatment_group == "Control" %}
         <ul>
             <li>Where is fake news found?</li>
             <li>How does fake news spread?</li>
         </ul>
         <h3>Up Next</h3>
-        {% if treatment_group == "Control" %}
-            <p>Topic 3: Finding credible sources</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% elif treatment_group == "GS1" %}
-             <p>Let's play a game to see what you have learnt (GS1)</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% elif treatment_group == "GS2" %}
-            <p>Let's play a game to see what you have learnt (GS2)</p>
-            {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
-        {% endif %}
+        <p>Topic 3: Finding credible sources</p>
+        {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
+    {% elif treatment_group == "GS1" %}
+        <div class="game-container">
+            <div class="quiz-container">
+                {% include 'quizapp-t2.html' %}
+            </div>
+        </div>
+        <h3>Up Next</h3>
+        <p>Topic 3: Finding credible sources</p>
+        {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %} {# Change to tutorial_id=5 if needed #}
+    {% elif treatment_group == "GS2" %}
+        <p>Let's play a game to see what you have learnt (GS2)</p>
+    {% endif %}
 
     {% elif tutorial.title == "Topic 3" %}
         <h3>Topic 3 Recap</h3>
