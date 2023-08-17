@@ -1,0 +1,20 @@
+{% extends 'base_gs2.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="text-center" style="max-width: 95%; margin: 0 auto;">
+        <h2>GS2</h2>
+
+        <!-- Embed the game using an iframe -->
+        <iframe src="{% static 'game_embed.html' %}" width="800" height="600"></iframe>
+
+        <br><br>
+        <canvas id="myCanvas" width="700" height="450" style="background-color: lightgray;"></canvas>
+
+        <div class="news-story" id="newsStory1" data-category="fake" draggable="true" ondragstart="dragStart(event)">News Story 1 (Fake)</div>
+        <div class="news-story" id="newsStory2" data-category="real" draggable="true" ondragstart="dragStart(event)">News Story 2 (Real)</div>
+
+        <div id="score">Score: 0</div>
+    </div>
+{% endblock %}
