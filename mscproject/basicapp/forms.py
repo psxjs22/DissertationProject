@@ -1,5 +1,5 @@
 from django import forms
-from .models import ConsentForm, Participant, Demographic, Response
+from .models import ConsentForm, Participant, Demographic, Response, UsabilityQuestionnaire
 
 
 class ConsentFormForm(forms.ModelForm):
@@ -116,3 +116,45 @@ class QuizResponseForm(forms.Form):
         model = Response
         fields = ['response', 'confidence', 'reason']
 
+class UsabilityQuestionnaireForm(forms.ModelForm):
+    class Meta:
+        model = UsabilityQuestionnaire
+        fields = '__all__'
+        labels = {
+            # Questions for evaluating content, organisation, and readability
+
+            'easy_to_find': 'I can easily find what I want at this website.',
+            'well_organised': 'The content of this website is well organised.',
+            'easy_to_read': 'Reading content at this website is easy.',
+            'comfortable_language': 'I am comfortable and familiar with the language used.',
+            'no_left_right_scroll': 'I need not scroll left and right when reading at this website.',
+
+            # Questions for evaluating navigation and links
+            'know_where_i_am': 'I can easily know where I am at this website.',
+            'useful_cues_links': 'This website provides useful cues and links for me to get the desired information.',
+            'easy_to_move_around': 'It is easy to move around at this website by using the links or back button of the browser.',
+            'well_maintained_links': 'The links at this website are well maintained and updated.',
+            'not_many_new_windows': 'The website does not open too many new browser windows when I am moving around.',
+            'standard_placement_links': 'Placement of links or menu is standard throughout the website and I can easily recognise them.',
+
+            # Questions for evaluating user interface design
+            'attractive_design': "This website’s interface design is attractive.",
+            'comfortable_colors': "I am comfortable with the colours used at this website.",
+            'no_irritating_features': "This website contains no feature that irritates me such as scrolling or blinking text and looping animations.",
+            'consistent_look': "This website has a consistent feel and look.",
+            'easy_to_learn': "The design of the website makes sense and it is easy to learn how to use it.",
+
+            # Questions for evaluating performance and effectiveness
+            'fast_downloads': "I need not wait too long to download a file or open a page.",
+            'distinguish_links': "I can easily distinguish between visited and not-visited links.",
+            'expected_responses': "This website responds to my actions as expected.",
+            'efficient_use': "It is efficient to use this website.",
+            'clear_useful_messages': "This website always provides clear and useful messages when I don’t know how to proceed.",
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Add sliders for rating questions
+        for field_name, field in self.fields.items():
+            if isinstance(field.widget, forms.widgets.NumberInput):
+                field.widget = forms.widgets.TextInput(attrs={'type': 'range', 'min': '1', 'max': '5'})

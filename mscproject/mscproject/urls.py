@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include   # Import the include function
 from django.conf.urls.static import settings, static
-from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

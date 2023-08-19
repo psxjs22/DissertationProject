@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  <style>
+    .slider-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .question-column {
+      width: 30%;
+      padding-right: 10px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .slider-column {
+      width: 70%;
+      vertical-align: top;
+    }
+
+    .slider-labels {
+      width: 100%;
+    }
+
+    .slider-cell {
+      width: 100%;
+    }
+
+    .label-left,
+    .label-right {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .label-left {
+      text-align: left;
+    }
+
+    .label-right {
+      text-align: right;
+    }
+
+  </style>
+</head>
+
+{% block content %}
+<div style="max-width: 95%; margin: 0 auto;">
+  <h2>Usability Questionnaire</h2>
+  <p>For each question, use the slider to rate your experience. Drag the slider handle to the desired position between 1 (Strongly Disagree) and 5 (Strongly Agree). Refer to the image below for guidance:</p>
+  <img src="{% static 'images/slider.png' %}" alt="Slider Image" width="300">
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+    <table class="slider-table">
+      {% for field in form %}
+      <tr>
+        <td class="question-column">{{ forloop.counter }}.&nbsp;&nbsp;{{ field.label_tag }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="slider-column">
+          <table class="slider-labels">
+            <tr>
+              <td class="label-left">1&nbsp;&nbsp;&nbsp;</td>
+              <td class="slider-cell">
+                <input type="range" name="{{ field.name }}" class="slider" min="1" max="5" step="1">
+              </td>
+              <td class="label-right">&nbsp;&nbsp;&nbsp;5</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    const sliders = document.querySelectorAll('input[type="range"]');
+    sliders.forEach(slider => {
+      noUiSlider.create(slider, {
+        start: 1, // Default value
+        connect: 'lower',
+        step: 1,
+        range: {
+          'min': 1,
+          'max': 5
+        },
+        pips: {
+          mode: 'values',
+          values: [1, 2, 3, 4, 5],
+          density: 10
+        }
+      });
+    });
+  </script>
+{% endblock %}

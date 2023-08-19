@@ -55,6 +55,7 @@ class Response(models.Model):
     def __str__(self):
         return f"Response for Participant: {self.participant}, Question: {self.question}, Response: {self.response}"
 
+
 class Tutorial(models.Model):
     page_title = models.CharField(max_length=255)
     video_url = models.URLField()
@@ -62,3 +63,39 @@ class Tutorial(models.Model):
 
     def __str__(self):
         return self.page_title
+
+
+class UsabilityQuestionnaire(models.Model):
+    # Questions for evaluating content, organisation, and readability
+    easy_to_find = models.PositiveIntegerField()
+    well_organised = models.PositiveIntegerField()
+    easy_to_read = models.PositiveIntegerField()
+    comfortable_language = models.PositiveIntegerField()
+    no_left_right_scroll = models.PositiveIntegerField()
+
+    # Questions for evaluating navigation and links
+    know_where_i_am = models.PositiveIntegerField()
+    useful_cues_links = models.PositiveIntegerField()
+    easy_to_move_around = models.PositiveIntegerField()
+    well_maintained_links = models.PositiveIntegerField()
+    not_many_new_windows = models.PositiveIntegerField()
+    standard_placement_links = models.PositiveIntegerField()
+
+    # Questions for evaluating user interface design
+    attractive_design = models.PositiveIntegerField()
+    comfortable_colors = models.PositiveIntegerField()
+    no_irritating_features = models.PositiveIntegerField()
+    consistent_look = models.PositiveIntegerField()
+    easy_to_learn = models.PositiveIntegerField()
+
+    # Questions for evaluating performance and effectiveness
+    fast_downloads = models.PositiveIntegerField()
+    distinguish_links = models.PositiveIntegerField()
+    expected_responses = models.PositiveIntegerField()
+    efficient_use = models.PositiveIntegerField()
+    clear_useful_messages = models.PositiveIntegerField()
+
+    # Other fields (participant, timestamp, etc.) can be added here
+
+    def __str__(self):
+        return f"Usability Questionnaire - Participant {self.id}"

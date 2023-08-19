@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div style="max-width: 95%; margin: 0 auto;">
     <h2>Finished!</h2>
     <p>Congratulations, you've finished!</p>
     <p>Thank you for taking the time to complete this survey. If you have any questions about the process, or if you would like to have your details removed from this study, please <a href="{% url 'contact' %}">get in touch.</a></p>
-
+    <p>If you have the time, we would appreciate it if you could complete a short questionnaire about the usability of this website, and the survey.</p>
+    <br>
     <form action="{% url 'home' %}" method="get">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">I'm Done</button>
     </form>
-
+    <br>
+    <br>
+    <form action="{% url 'usability_questionnaire' %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary indented-button" style="background-color: white; color: blue;">I'm happy to take the survey</button>
+    </form>
+</div>
 
 {% endblock %}

@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm
+from .forms import ConsentFormForm, DemographicsForm, QuizResponseForm, UsabilityQuestionnaireForm
 from django.contrib import messages
 from django.conf import settings
 from django.http import Http404, JsonResponse
-from .models import ConsentForm, Participant, TreatmentGroup, Demographic, Question, Response, Tutorial
+from .models import ConsentForm, Participant, TreatmentGroup, Demographic, Question, Response, Tutorial, UsabilityQuestionnaire
 import random
 import json
 import os
@@ -259,3 +259,14 @@ def quiz_debrief(request, participant_id, tutorial_id):
         })
 
 
+def usability_questionnaire(request):
+    if request.method == 'POST':
+        form = UsabilityQuestionnaireForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('finished')  # Redirect to the finished page
+    else:
+        form = UsabilityQuestionnaireForm()
+
+    context = {'form': form}
+    return render(request, 'usability_questionnaire.html', context)
