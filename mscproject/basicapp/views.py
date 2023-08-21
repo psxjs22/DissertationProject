@@ -32,7 +32,7 @@ def consent_create(request):
             consent_form_instance = form.save()
 
             # Calculate the treatment_group_id based on the current counts of participants in each group
-            total_groups = 3
+            total_groups = 2
             group_counts = [Participant.objects.filter(treatment_group_id=group_id).count() for group_id in
                             range(1, total_groups + 1)]
 

@@ -14,13 +14,5 @@
       "name": "GS1",
       "description": "Tutorial with gamification strategy XXX"
     }
-  },
-  {
-    "model": "basicapp.treatmentGroup",
-    "pk": 3,
-    "fields": {
-      "name": "GS2",
-      "description": "Tutorial with gamification strategy XXX"
-    }
   }
 ]

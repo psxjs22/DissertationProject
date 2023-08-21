@@ -3,6 +3,7 @@ from .models import ConsentForm, Participant, Demographic, Response, UsabilityQu
 
 
 class ConsentFormForm(forms.ModelForm):
+    signed = forms.BooleanField(required=True, label="I agree that I have read and understood the above information and am happy to proceed.")
     class Meta:
         model = ConsentForm
         # Exclude the 'participant' field from the form

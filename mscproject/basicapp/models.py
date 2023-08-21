@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class TreatmentGroup(models.Model):
     name = models.CharField(max_length=100)
@@ -9,7 +10,7 @@ class TreatmentGroup(models.Model):
 
 class ConsentForm(models.Model):
     initials = models.CharField(max_length=10)
-    date = models.DateField(default='2023-01-01')
+    date = models.DateField(default=timezone.now)
     signed = models.BooleanField()
 
     def __str__(self):
