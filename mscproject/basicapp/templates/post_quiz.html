@@ -10,7 +10,7 @@
         <iframe width="840" height="472.5" src="https://www.youtube.com/embed/MmJiTOeZ88g?si=tJNwnhcijKxJgEnu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <br>
-<form action="{% url 'tutorial_video' participant_id=participant.id tutorial_id=1 %}" method="get">
+<form action="{% url 'tutorial_video' participant_id=participant.id tutorial_id=1 %}" method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-primary indented-button">Start Tutorial</button>
 </form>

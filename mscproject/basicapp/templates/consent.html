@@ -26,7 +26,7 @@
     <p><em>{{ message.level_tag|title }}:</em> {{ message }}</p>
     {% endfor %}
 
-    <form method="post">
+    <form method="post" style="list-style-type: none;">
       {% csrf_token %}
       {{form.as_p }}
 

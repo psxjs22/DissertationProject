@@ -22,7 +22,7 @@
         {% url 'tutorial_summary' participant_id=participant.id tutorial_id=5 as next_page %}
     {% endif %}
 
-    <form action="{{ next_page }}" method="get">
+    <form action="{{ next_page }}" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button">Next</button>
     </form>

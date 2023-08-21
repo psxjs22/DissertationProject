@@ -13,6 +13,7 @@
                 <p>What is fake news</p>
                 <p>Where did fake news come from</p>
             </ul>
+            <br><br>
 
         {% elif treatment_group == "GS1" %}
             <div class="game-container">
@@ -22,6 +23,8 @@
             </div>
 
         {% endif %}
+        <hr>
+        <br><br>
         <h3>Up Next</h3>
         <p>Topic 2: Finding fake news</p>
         {% url 'tutorial_video' participant_id=participant.id tutorial_id=2 as next_page %}
@@ -36,6 +39,7 @@
                 <p>Where is fake news found?</p>
                 <p>How does fake news spread?</p>
             </ul>
+            <br><br>
 
         {% elif treatment_group == "GS1" %}
             <div class="game-container">
@@ -45,6 +49,8 @@
             </div>
 
         {% endif %}
+        <hr>
+        <br><br>
         <h3>Up Next</h3>
         <p>Topic 3: Finding credible sources</p>
         {% url 'tutorial_video' participant_id=participant.id tutorial_id=3 as next_page %}
@@ -58,6 +64,7 @@
                 <p>Where is fake news found?</p>
                 <p>How does fake news spread?</p>
             </ul>
+            <br><br>
 
         {% elif treatment_group == "GS1" %}
             <div class="game-container">
@@ -65,8 +72,11 @@
                     {% include 'quizapp-t3.html' %}
                 </div>
             </div>
+            <br><br>
 
         {% endif %}
+        <hr>
+        <br><br>
         <h3>Up Next</h3>
         <p>Topic 4: How to spot fake news</p>
         {% url 'tutorial_video' participant_id=participant.id tutorial_id=4 as next_page %}
@@ -80,6 +90,7 @@
             <p>Where is fake news found?</p>
             <p>How does fake news spread?</p>
         </ul>
+        <br><br>
 
         {% elif treatment_group == "GS1" %}
             <div class="game-container">
@@ -89,6 +100,8 @@
             </div>
 
         {% endif %}
+        <hr>
+        <br><br>
         <h3>Up Next</h3>
         <p>Knowledge Check</p>
         {% url 'tutorial_video' participant_id=participant.id tutorial_id=5 as next_page %}
@@ -111,7 +124,6 @@
         {% elif treatment_group == "GS1" %}
             <p></p>
 
-
         {% endif %}
         <h3>Up Next</h3>
         <p>Recap Quiz: Let's see what you have learnt</p>
@@ -121,7 +133,7 @@
 
 
     <div>
-    <form action="{{ next_page }}" method="get">
+    <form action="{{ next_page }}" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary indented-button" style="max-width: 10%; margin: 0 auto; text-align: center; background-color: #001e4d; color: #fff;">Next</button>
     </form>
