@@ -1,5 +1,6 @@
 from django import forms
 from .models import ConsentForm, Participant, Demographic, Response, UsabilityQuestionnaire
+from django.utils import timezone
 
 
 class ConsentFormForm(forms.ModelForm):
@@ -9,7 +10,7 @@ class ConsentFormForm(forms.ModelForm):
         # Exclude the 'participant' field from the form
         exclude = ['participant']
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'})
+            'date': forms.DateInput(attrs={'type': 'date', 'value': timezone.now().date().isoformat()})
         }
 
 GENDER_LIST = (['1', 'Male'], ['2', 'Female'], ['3', 'Non-Binary'], ['4', 'Other'], ['5', 'Prefer not to say'])
