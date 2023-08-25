@@ -1,19 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="max-width: 95%; margin: 0 auto;">
-    <h2>Introduction</h2>
-    <p>Welcome to our pilot study! In today's digital world, fake news is a serious concern that can influence how adults perceive information and make decisions. We are here to help you identify fake news and tackle misinformation.</p>
-    <p>Our study seeks to understand which strategies can be used to help people to gain confidence when assessing news stories.</p>
-    <p>We've created a user-friendly website where anyone over the age of 18 can participate in our study. You'll find all the information you need to make informed choices and contribute to our research on the next few pages.</p>
-    <p>By joining our pilot study, you'll be helping us understand how to best combat fake news for adults. Together, we can create a more informed society and empower individuals to be critical thinkers.</p>
-    <br>
 
-    <form action="{% url 'method' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary indented-button">Click here to get involved</button>
-    </form>
-</div>
+    <div class="bg-primary text-secondary px-4 py-4 text-center">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-white">Fake News MSc Project</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4 text-light">Welcome to our pilot study! In today's digital world, fake news is a serious concern that can influence how adults perceive information and make decisions. We are here to help you identify fake news and tackle misinformation.</p>
+                <p class="fs-5 mb-4 text-light">Our study seeks to understand which strategies can be used to help people to gain confidence when assessing news stories.</p>
+                <p class="fs-5 mb-4 text-light">We've created a user-friendly website where anyone over the age of 18 can participate in our study. You'll find all the information you need to make informed choices and contribute to our research on the next few pages.</p>
+                <p class="fs-5 mb-4 text-light">By joining our pilot study, you'll be helping us understand how to best combat fake news for adults. Together, we can create a more informed society and empower individuals to be critical thinkers.</p>
+            <form action="{% url 'method' %}" method="post">
+                {% csrf_token %}
+                <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+                    <button type="submit" class="btn btn-light">Click Here to Take Part</button>
+                </div></div>
+            </form>
+            </div>
+            </div>
+            </div>
+        </div>
+
 
 {% endblock %}
 
