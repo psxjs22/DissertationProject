@@ -7,7 +7,36 @@
     <h2>Consent Form</h2>
     <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
     <p>If you are still happy to proceed, please complete the details below to confirm that you have understood the details of this study and consent to participating in this study.</p>
-    <iframe src="{% static 'pdf/ethics_form.pdf' %}" width="100%" height="500px"></iframe>
+    <hr style="border: 1px dashed #C0C0C0" color="#FFFFFF" >
+
+    <h2>School of Computer Science</h2>
+        <h3>University of Nottingham</h3>
+        <h4>Section B. Information to be provided to research participants</h4>
+        <h5>Fake News Education:</h5>
+        <p>A new platform for assessing gamified solutions in the study of media literacy education for the purpose of reducing susceptibility to fake news.</p>
+
+        <h5>1. The research</h5>
+        <table class="table table-bordered">
+            <tr>
+                <td>a) Aims and objectives of the research</td>
+                <td>
+                    As part of my degree, I have made an educational tool to help people to identify fake news in the media, and I would like to get feedback about it and how it might be improved.<br>
+                    I am doing this as part of my MSc Computer Science degree at the University of Nottingham.
+                </td>
+            </tr>
+            <tr>
+                <td>b) Funder information</td>
+                <td>N/A.</td>
+            </tr>
+            <tr>
+                <td>c) Governance</td>
+                <td>This research follows a standard protocol agreed by the School of Computer Science Research Ethics Committee (CS REC), SOP1.1 and has been reviewed by my project supervisor, Jeremie Clos.</td>
+            </tr>
+        </table>
+
+
+
+
     <br><br>
     <hr>
     <p><b>I consent to participate in the research and my signature or mark confirms the following:</b></p>
@@ -30,15 +59,15 @@
         {% csrf_token %}
         <div class="table-responsive">
             <table>
-                <label>Initials
+                <label>Initials \n
                     {{ form.initials }}
                 </label>
                 <br><br>
-                <label>Date
+                <label>Date \n
                     {{ form.date }}
                 </label>
                 <br><br>
-                <label>Please confirm that you have read and understood the information above and consent to participate in this study
+                <label>Please confirm that you have read and understood the information above and consent to participate in this study \n
                     {{ form.signed }}
                 </label>
                 <br><br>
