@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-  <div class="form-container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+<div class="bg-white text-dark px-4 py-6 text-center">
     <h2>Consent Form</h2>
     <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
     <p>If you are still happy to proceed, please complete the details below to confirm that you have understood the details of this study and consent to participating in this study.</p>
@@ -26,13 +26,27 @@
     <p><em>{{ message.level_tag|title }}:</em> {{ message }}</p>
     {% endfor %}
 
-    <form method="post" style="list-style-type: none;">
-      {% csrf_token %}
-      {{form.as_p }}
-      <p>
-        <input type="submit" value="Submit">
-      </p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="table-responsive">
+            <table>
+                <label>Initials
+                    {{ form.initials }}
+                </label>
+                <br><br>
+                <label>Date
+                    {{ form.date }}
+                </label>
+                <br><br>
+                <label>Please confirm that you have read and understood the information above and consent to participate in this study
+                    {{ form.signed }}
+                </label>
+                <br><br>
+                <input type="submit" value="Submit">
+            </table>
+        </div>
     </form>
+
 
       <br>
       <a href="{% url 'home' %}" >I think I've changed my mind, take me back</a>
