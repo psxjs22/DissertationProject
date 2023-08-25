@@ -8,33 +8,60 @@
     <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
     <p>If you are still happy to proceed, please complete the details below to confirm that you have understood the details of this study and consent to participating in this study.</p>
     <hr style="border: 1px dashed #C0C0C0" color="#FFFFFF" >
-
-    <h2>School of Computer Science</h2>
-        <h3>University of Nottingham</h3>
-        <h4>Section B. Information to be provided to research participants</h4>
-        <h5>Fake News Education:</h5>
-        <p>A new platform for assessing gamified solutions in the study of media literacy education for the purpose of reducing susceptibility to fake news.</p>
-
-        <h5>1. The research</h5>
-        <table class="table table-bordered">
-            <tr>
-                <td>a) Aims and objectives of the research</td>
-                <td>
-                    As part of my degree, I have made an educational tool to help people to identify fake news in the media, and I would like to get feedback about it and how it might be improved.<br>
-                    I am doing this as part of my MSc Computer Science degree at the University of Nottingham.
-                </td>
-            </tr>
-            <tr>
-                <td>b) Funder information</td>
-                <td>N/A.</td>
-            </tr>
-            <tr>
-                <td>c) Governance</td>
-                <td>This research follows a standard protocol agreed by the School of Computer Science Research Ethics Committee (CS REC), SOP1.1 and has been reviewed by my project supervisor, Jeremie Clos.</td>
-            </tr>
-        </table>
+    <div class="text-center" style="max-width: 80%; margin: 0 auto;">
+        <img src="{% static 'images/UoN.png' %}" alt="University of Nottingham logo" width="300">
+        <h3>School of Computer Science</h3>
+            <h4>University of Nottingham</h4>
+            <h5>Section B. Information to be provided to research participants</h5>
+            <h6>Fake News Education: A new platform for assessing gamified solutions in the study of media literacy education for the purpose of reducing susceptibility to fake news.</h6>
 
 
+            <table class="table table-bordered">
+                <tr>
+                    <td><h6>1. The research</h6></td>
+                </tr>
+                <tr>
+                    <td>a) Aims and objectives of the research</td>
+                    <td>
+                        As part of my degree, I have made an educational tool to help people to identify fake news in the media, and I would like to get feedback about it and how it might be improved.<br>
+                        I am doing this as part of my MSc Computer Science degree at the University of Nottingham.
+                    </td>
+                </tr>
+                <tr>
+                    <td>b) Funder information</td>
+                    <td>N/A.</td>
+                </tr>
+                <tr>
+                    <td>c) Governance</td>
+                    <td>This research follows a standard protocol agreed by the School of Computer Science Research Ethics Committee (CS REC), SOP1.1 and has been reviewed by my project supervisor, Jeremie Clos.</td>
+                </tr>
+                <tr><br></tr>
+                <tr>
+                    <td><h6>2. Taking part in the research</h6></td>
+                </tr>
+                <tr>
+                    This will take about 20 minutes in total and can be done online.
+                    There will be an initial questionnaire which will ask you to provide some basic demographic information about yourself, and you will then be provided with a series of news stories and will be asked to identify which ones are real and which ones are fake.
+                    I will then ask you to complete a tutorial, which aims to inform you about different strategies used by those producing fake news, and different ways to detect it.
+                    There will be a follow-up questionnaire which will ask you to repeat the initial quiz in which you were asked to identify fake news articles to assess the impact of the educational tool.
+                    There will be an optional debriefing questionnaire, which will ask about the useability of the webapp and the usefulness of the solution.
+                </tr>
+                <tr>
+                    <td><h6>3. Risks of participation </h6></td>
+                </tr>
+                <tr>
+                    <td>a) Risks </td>
+                    <td>
+                        There is always a risk of unauthorised access to data.
+                        There will be no significant risks and all precautionary steps will be taken to ensure personal data is stored securely.
+                    </td>
+                </tr>
+            </table>
+
+
+
+    </div>
+</div>
 
 
     <br><br>
@@ -59,15 +86,15 @@
         {% csrf_token %}
         <div class="table-responsive">
             <table>
-                <label>Initials \n
+                <label>Initials
                     {{ form.initials }}
                 </label>
                 <br><br>
-                <label>Date \n
+                <label>Date
                     {{ form.date }}
                 </label>
                 <br><br>
-                <label>Please confirm that you have read and understood the information above and consent to participate in this study \n
+                <label>Please confirm that you have read and understood the information above and consent to participate in this study
                     {{ form.signed }}
                 </label>
                 <br><br>
