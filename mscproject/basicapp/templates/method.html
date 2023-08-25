@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="max-width: 95%; margin: 0 auto;">
+<div class="bg-white text-dark px-4 py-4 text-center">
     <h2>The Project</h2>
     <p>Participating in our study is easy and informative, you'll be asked to read the ethics briefing form and provide your consent to join the study.</p>
     <p>Next, we'll gather some basic demographic information to better understand our participant group. After that, you'll take a quiz to assess your current ability to identify fake news; don't worry too much, this is just to get a baseline reading and all results will be anonymised.</p>
@@ -10,14 +10,20 @@
     <p>Once you have completed the tutorial, as well as any relevant quizzes, you will be asked to retake the initial quiz.</p>
     <p>After this has been completed, for those who are interested, there's an optional debriefing session, where we'll a series of multiple choice questions about your experience.</p>
     <p>If you have any questions about the project, process, data handling or anything else please <a href="{% url 'contact' %}">get in touch.</a></p>
-    </ol>
     <br>
     <form action="{% url 'consent_create' %}" method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary indented-button">I understand and am happy to continue</button>
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+            <button type="submit" class="btn btn-primary">I understand and am happy to continue</button>
+        </div></div>
     </form>
     <br>
-    <p>&nbsp;&nbsp;<a href="{% url 'home' %}">I'd rather not continue, take me back.</a></p>
-    <br>
+    <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+            <button type="submit" class="btn btn-outline-primary">I'd rather not continue, take me back.</button>
+        </div></div>
+    </form>
+
 </div>
 {% endblock %}
