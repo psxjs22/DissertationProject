@@ -107,6 +107,7 @@ class QuizResponseForm(forms.Form):
 
     response = forms.BooleanField(
         required=False,
+        initial=True,
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input',
             'type': 'checkbox',
