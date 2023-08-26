@@ -2,6 +2,7 @@
 {% block content %}
 <div style="max-width: 95%; margin: 0 auto;">
     <div class="bg-primary text-light px-4 py-6 text-center">
+        <br>
         <h2>Please tell us a bit about yourself</h2>
         <p>For monitoring purposes, please complete this short anonymous form to tell us a bit about you.</p>
         <br>
@@ -9,29 +10,36 @@
     <form method="post">
     {% csrf_token %}
     <div class="table-responsive">
+        <br>
+        <br>
         <table style="width: 100%; border-collapse: collapse;">
-            <tr style="padding: 10px 0;">
-                <td style="width: 30%; text-align: right; padding-right: 10px;">Gender</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.gender }}</div></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="2" style="text-align: right; padding-right: 10px;">Gender</td>
+                <td></td>
+                <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.gender }}</div></td>
             </tr>
-            <tr style="padding: 10px 0;">
-                <td style="text-align: right; padding-right: 10px;">Age</td>
-                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.age }}</div></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="2" style="text-align: right; padding-right: 10px;">Age</td>
+                <td></td>
+                <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.age }}</div></td>
             </tr>
-            <tr style="padding: 10px 0;">
-                <td style="text-align: right; padding-right: 10px;">Ethnicity</td>
-                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.ethnicity }}</div></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="2" style="text-align: right; padding-right: 10px;">Ethnicity</td>
+                <td></td>
+                <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.ethnicity }}</div></td>
             </tr>
-            <tr style="padding: 10px 0;">
-                <td style="text-align: right; padding-right: 10px;">Occupation*</td>
-                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.occupation }}</div></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="2" style="text-align: right; padding-right: 10px;">Occupation*</td>
+                <td></td>
+                <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.occupation }}</div></td>
             </tr>
-            <tr style="padding: 10px 0;">
-                <td style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
-                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.education }}</div></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="2" style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
+                <td></td>
+                <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.education }}</div></td>
             </tr>
-            <tr style="padding: 10px 0;">
-                <td colspan="2"><input type="submit" value="Submit" class="btn btn-primary"></td>
+            <tr style="padding: 50px 0;">
+                <td colspan="6"><input type="submit" value="Submit" class="btn btn-primary"></td>
             </tr>
         </table>
     </div>
