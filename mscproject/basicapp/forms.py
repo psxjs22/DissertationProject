@@ -17,7 +17,7 @@ class ConsentFormForm(forms.ModelForm):
             'initials': forms.TextInput(attrs={'class': 'form-control'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'value': timezone.now().date().isoformat()})
         }
-        }
+
 
 GENDER_LIST = (['1', 'Male'], ['2', 'Female'], ['3', 'Non-Binary'], ['4', 'Other'], ['5', 'Prefer not to say'])
 
