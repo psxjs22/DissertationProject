@@ -106,16 +106,15 @@ class QuizResponseForm(forms.Form):
     ]
 
     response = forms.BooleanField(
-        required=False,
-        initial=True,
+        required=True,
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input',
             'type': 'checkbox',
             'data-toggle': 'toggle',
-            'data-on': 'Real',
-            'data-off': 'Fake',
-            'data-onstyle': 'success',  # Optional: for green "Real"
-            'data-offstyle': 'danger'  # Optional: for red "Fake"
+            'data-on': 'Fake',
+            'data-off': 'Real',
+            'data-onstyle': 'danger',  # Optional: for green "Real"
+            'data-offstyle': 'success'  # Optional: for red "Fake"
         }),
         label='Do you think the article was more likely to be real or fake?'
     )
