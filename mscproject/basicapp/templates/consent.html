@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="bg-white text-dark px-4 py-6 text-center" xmlns="http://www.w3.org/1999/html">
+<div class="bg-white text-dark px-4 py-6 text-center">
     <h2>Consent Form</h2>
     <p>Please take the time to read and review the full ethics form below, which has been approved by the University of Nottingham Computer Science Ethics Committee.</p>
     <p>If you are still happy to proceed, please complete the details below to confirm that you have understood the details of this study and consent to participating in this study.</p>
@@ -181,10 +181,11 @@
     </div>
 </div>
 
-
-    <br><br>
+<div class="bg-light text-dark px-4 py-6 text-center">
+    <br>
     <hr>
-    <h6><strong>8. Your ethical rights</strong></h6>
+    <br>
+    <h5><strong>8. Your ethical rights</strong></h5>
     <p><strong>a) I consent to participate in the research and my signature or mark confirms the following:</strong></p>
     <p>I understand the aims and objectives of the research</p>
     <p>I understand what the research requires me to do</p>
@@ -200,6 +201,9 @@
     {% for message in messages %}
     <p><em>{{ message.level_tag|title }}:</em> {{ message }}</p>
     {% endfor %}
+</div>
+
+<div class="bg-dark text-light px-4 py-6 text-center">
 
     <form method="post">
         {% csrf_token %}
@@ -226,7 +230,8 @@
       <br>
       <a href="{% url 'home' %}" >I think I've changed my mind, take me back</a>
       <br><br>
-      </div>
     </form>
-  </div>
+
+</div>
+
 {% endblock %}
