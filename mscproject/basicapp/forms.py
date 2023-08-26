@@ -4,13 +4,19 @@ from django.utils import timezone
 
 
 class ConsentFormForm(forms.ModelForm):
-    signed = forms.BooleanField(required=True, label="I agree that I have read and understood the above information and am happy to proceed.")
+    signed = forms.BooleanField(
+        required=True,
+        label="I agree that I have read and understood the above information and am happy to proceed.",
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+
     class Meta:
         model = ConsentForm
-        # Exclude the 'participant' field from the form
         exclude = ['participant']
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date', 'value': timezone.now().date().isoformat()})
+            'initials': forms.TextInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'value': timezone.now().date().isoformat()})
+        }
         }
 
 GENDER_LIST = (['1', 'Male'], ['2', 'Female'], ['3', 'Non-Binary'], ['4', 'Other'], ['5', 'Prefer not to say'])
