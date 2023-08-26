@@ -5,34 +5,36 @@
     <p>For monitoring purposes, please complete this short anonymous form to tell us a bit about you.</p>
 
     <form method="post">
-        {% csrf_token %}
-        <div class="table-responsive">
-            <table class=""table>
-                <label>Gender
-                    {{ form.gender }}
-                </label>
-                <br><br>
-                <label>Age
-                    {{ form.age }}
-                </label>
-                <br><br>
-                <label>Ethnicity
-                    {{ form.ethnicity }}
-                </label>
-                <br><br>
-                <label>Occupation
-                    {{ form.occupation }}
-                </label>
-                <br><br>
-                <label>Highest Level of Education
-                    {{ form.education }}
-                </label>
-
-                <br><br>
-                <input type="submit" value="Submit">
-            </table>
-        </div>
-    </form>
+    {% csrf_token %}
+    <div class="table-responsive">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="width: 30%; text-align: right; padding-right: 10px;">Gender</td>
+                <td style="width: 70%;">{{ form.gender }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 10px;">Age</td>
+                <td>{{ form.age }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 10px;">Ethnicity</td>
+                <td>{{ form.ethnicity }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 10px;">Occupation</td>
+                <td>{{ form.occupation }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
+                <td>{{ form.education }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </div>
+</form>
     <br>
     <p>For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</p>
 </div>
