@@ -111,7 +111,7 @@ class QuizResponseForm(forms.Form):
         label='Do you think the article was more likely to be real or fake?'
     )
     confidence = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'class': 'form-control'}),
+        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'step': 1}),
         label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?'
     )
     reason = forms.CharField(
@@ -123,6 +123,13 @@ class QuizResponseForm(forms.Form):
     class Meta:
         model = Response
         fields = ['response', 'confidence', 'reason']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            if isinstance(field.widget, forms.widgets.NumberInput):
+                field.widget = forms.widgets.TextInput(
+                    attrs={'type': 'range', 'min': '1', 'max': '5', 'class': 'form-control-slider', 'step': 1})
 
 class UsabilityQuestionnaireForm(forms.ModelForm):
     class Meta:
