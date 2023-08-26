@@ -107,9 +107,18 @@ class QuizResponseForm(forms.Form):
 
     response = forms.BooleanField(
         required=False,
-        widget=forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'checkbox', 'role': 'switch'}),
+        widget=forms.CheckboxInput(attrs={
+            'class': 'form-check-input',
+            'type': 'checkbox',
+            'data-toggle': 'toggle',
+            'data-on': 'Real',
+            'data-off': 'Fake',
+            'data-onstyle': 'success',  # Optional: for green "Real"
+            'data-offstyle': 'danger'  # Optional: for red "Fake"
+        }),
         label='Do you think the article was more likely to be real or fake?'
     )
+
     confidence = forms.IntegerField(
         widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'step': 1}),
         label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?'
