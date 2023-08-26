@@ -105,8 +105,8 @@ class QuizResponseForm(forms.Form):
         (5, '5'),
     ]
 
-    response = forms.ChoiceField(
-        choices=[('Real', 'Real'), ('Fake', 'Fake')],
+    response = forms.BooleanField(
+        required=True,
         widget=forms.CheckboxInput(
             attrs={'type': 'checkbox', 'data-toggle': 'toggle', 'data-on': 'Real', 'data-off': 'Fake'}),
         label='Do you think the article was more likely to be real or fake?'
@@ -131,6 +131,7 @@ class QuizResponseForm(forms.Form):
             if isinstance(field.widget, forms.widgets.NumberInput):
                 field.widget = forms.widgets.TextInput(
                     attrs={'type': 'range', 'min': '1', 'max': '5', 'class': 'form-control-slider', 'step': 1})
+
 
 class UsabilityQuestionnaireForm(forms.ModelForm):
     class Meta:
