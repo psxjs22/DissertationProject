@@ -12,23 +12,23 @@
         <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 10px 0;">
                 <td style="width: 30%; text-align: right; padding-right: 10px;">Gender</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><select class="uniform-dropdown">{{ form.gender }}</select></td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.gender }}</div></td>
             </tr>
             <tr style="padding: 10px 0;">
-                <td style="width: 30%; text-align: right; padding-right: 10px;">Age</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><select class="uniform-dropdown">{{ form.age }}</select></td>
+                <td style="text-align: right; padding-right: 10px;">Age</td>
+                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.age }}</div></td>
             </tr>
             <tr style="padding: 10px 0;">
-                <td style="width: 30%; text-align: right; padding-right: 10px;">Ethnicity</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><select class="uniform-dropdown">{{ form.ethnicity }}</select></td>
+                <td style="text-align: right; padding-right: 10px;">Ethnicity</td>
+                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.ethnicity }}</div></td>
             </tr>
             <tr style="padding: 10px 0;">
-                <td style="width: 30%; text-align: right; padding-right: 10px;">Occupation*</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><select class="uniform-dropdown">{{ form.occupation }}</select></td>
+                <td style="text-align: right; padding-right: 10px;">Occupation*</td>
+                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.occupation }}</div></td>
             </tr>
             <tr style="padding: 10px 0;">
-                <td style="width: 30%; text-align: right; padding-right: 10px;">Highest Level of Education</td>
-                <td style="width: 70%; text-align: left; padding-left: 10px;"><select class="uniform-dropdown">{{ form.education }}</select></td>
+                <td style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
+                <td style="text-align: left; padding-left: 10px;"><div style="width: 300px;">{{ form.education }}</div></td>
             </tr>
             <tr style="padding: 10px 0;">
                 <td colspan="2"><input type="submit" value="Submit" class="btn btn-primary"></td>
@@ -39,5 +39,4 @@
     <br>
     <p><em>*For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</em></p>
 </div>
-    {% endblock %}
-
+{% endblock %}
