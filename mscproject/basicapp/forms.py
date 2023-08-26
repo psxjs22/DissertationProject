@@ -106,9 +106,8 @@ class QuizResponseForm(forms.Form):
     ]
 
     response = forms.BooleanField(
-        required=True,
-        widget=forms.CheckboxInput(
-            attrs={'type': 'checkbox', 'data-toggle': 'toggle', 'data-on': 'Real', 'data-off': 'Fake'}),
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input', 'type': 'checkbox', 'role': 'switch'}),
         label='Do you think the article was more likely to be real or fake?'
     )
     confidence = forms.IntegerField(

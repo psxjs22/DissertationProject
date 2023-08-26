@@ -28,8 +28,10 @@
         <div class="row justify-content-center">
             <div class="col-auto">
                 <div class="form-group">
-                    <h6><label for="{{ form.response.label }}">{{ form.response.label }}</label></h6>
-                    {{ form.response }}
+                    <div class="form-check form-switch">
+                        {{ form.response }}
+                        <label class="form-check-label" for="{{ form.response.id_for_label }}">{{ form.response.label }}</label>
+                    </div>
                 </div>
                 <br>
                 <div class="form-group">
