@@ -22,7 +22,7 @@
     <br>
     <h2>Quiz</h2>
 
-<form method="post" class="response-form-container">
+<form method="post" class="response-form-container" action="{% url 'submit_response' participant_id=participant_id question_number=question.id question_attempt=question_attempt %}">
     {% csrf_token %}
     <div class="container">
         <div class="row justify-content-center">
