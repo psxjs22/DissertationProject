@@ -9,35 +9,51 @@
     </div>
     <form method="post">
     {% csrf_token %}
-    <div class="table-responsive">
+    <div style="max-width: 70%; margin: 0 auto;" class="table-responsive">
         <br>
         <br>
         <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="2" style="text-align: right; padding-right: 10px;">Gender</td>
-                <td></td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp;</td>
                 <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.gender }}</div></td>
             </tr>
+        </table>
+        <br>
+        <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="2" style="text-align: right; padding-right: 10px;">Age</td>
-                <td></td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp;</td>
                 <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.age }}</div></td>
             </tr>
+        </table>
+        <br>
+        <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="2" style="text-align: right; padding-right: 10px;">Ethnicity</td>
-                <td></td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp;</td>
                 <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.ethnicity }}</div></td>
             </tr>
+        </table>
+        <br>
+        <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="2" style="text-align: right; padding-right: 10px;">Occupation*</td>
-                <td></td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp;</td>
                 <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.occupation }}</div></td>
             </tr>
+        </table>
+        <br>
+        <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="2" style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
-                <td></td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp;</td>
                 <td colspan="3" style="text-align: left; padding-left: 10px;"><div style="width: 100%;">{{ form.education }}</div></td>
             </tr>
+        </table>
+        <br>
+        <br>
+        <table style="width: 100%; border-collapse: collapse;">
             <tr style="padding: 50px 0;">
                 <td colspan="6"><input type="submit" value="Submit" class="btn btn-primary"></td>
             </tr>
