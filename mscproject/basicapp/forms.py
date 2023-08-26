@@ -84,11 +84,11 @@ class DemographicsForm(forms.Form):
     occupation_choices = placeholder + list(OCCUPATION_LIST)
     education_choices = placeholder + list(EDUCATION_LIST)
 
-    gender = forms.ChoiceField(choices=gender_choices)
-    age = forms.ChoiceField(choices=age_choices)
-    ethnicity = forms.ChoiceField(choices=ethnicity_choices)
-    occupation = forms.ChoiceField(choices=occupation_choices)
-    education = forms.ChoiceField(choices=education_choices)
+    gender = forms.ChoiceField(choices=gender_choices, widget=forms.Select(attrs={'class': 'text-center'}))
+    age = forms.ChoiceField(choices=age_choices, widget=forms.Select(attrs={'class': 'text-center'}))
+    ethnicity = forms.ChoiceField(choices=ethnicity_choices, widget=forms.Select(attrs={'class': 'text-center'}))
+    occupation = forms.ChoiceField(choices=occupation_choices, widget=forms.Select(attrs={'class': 'text-center'}))
+    education = forms.ChoiceField(choices=education_choices, widget=forms.Select(attrs={'class': 'text-center'}))
 
 
 class QuizResponseForm(forms.Form):
