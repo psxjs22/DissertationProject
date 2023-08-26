@@ -1,42 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="max-width: 95%; margin: 0 auto;">
-    <h2>Please tell us a bit about yourself</h2>
-    <p>For monitoring purposes, please complete this short anonymous form to tell us a bit about you.</p>
-
+    <div class="bg-primary text-secondary px-4 py-6 text-center">
+        <h2>Please tell us a bit about yourself</h2>
+        <p>For monitoring purposes, please complete this short anonymous form to tell us a bit about you.</p>
+    </div>
     <form method="post">
     {% csrf_token %}
     <div class="table-responsive">
         <table style="width: 100%; border-collapse: collapse;">
             <tr>
                 <td style="width: 30%; text-align: right; padding-right: 10px;">Gender</td>
-                <td style="width: 70%;">{{ form.gender }}</td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;">{{ form.gender }}</td>
             </tr>
+            <tr></tr>
             <tr>
                 <td style="text-align: right; padding-right: 10px;">Age</td>
-                <td>{{ form.age }}</td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;">{{ form.age }}</td>
             </tr>
+            <tr></tr>
             <tr>
                 <td style="text-align: right; padding-right: 10px;">Ethnicity</td>
-                <td>{{ form.ethnicity }}</td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;">{{ form.ethnicity }}</td>
             </tr>
+            <tr></tr>
             <tr>
-                <td style="text-align: right; padding-right: 10px;">Occupation</td>
-                <td>{{ form.occupation }}</td>
+                <td style="text-align: right; padding-right: 10px;">Occupation*</td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;">{{ form.occupation }}</td>
             </tr>
+            <tr></tr>
             <tr>
                 <td style="text-align: right; padding-right: 10px;">Highest Level of Education</td>
-                <td>{{ form.education }}</td>
+                <td style="width: 70%; text-align: left; padding-left: 10px;">{{ form.education }}</td>
             </tr>
+            <tr></tr>
             <tr>
-                <td></td>
-                <td><input type="submit" value="Submit"></td>
+                <td colspan="2"><input type="submit" value="Submit" class="btn btn-primary"></td>
             </tr>
         </table>
     </div>
 </form>
     <br>
-    <p>For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</p>
+    <p><em>*For more information about each occupation type, please visit the <a href="https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups">ONS Website</a> for details of the Standard Occupational Classification (SOC) system (table 2).</em></p>
 </div>
     {% endblock %}
 
