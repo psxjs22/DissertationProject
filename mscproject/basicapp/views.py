@@ -9,6 +9,8 @@ import json
 import os
 
 def home(request):
+    if 'participant_id' in request.session:
+        del request.session['participant_id']
     return render(request, 'home.html')
 
 
@@ -234,6 +236,8 @@ def recapquiz_instructions(request, participant_id):
 
 
 def finished(request):
+    if 'participant_id' in request.session:
+        del request.session['participant_id']
     return render(request, 'finished.html')
 
 
@@ -262,6 +266,8 @@ def quiz_debrief(request, participant_id, tutorial_id):
 
 
 def usability_questionnaire(request):
+    if 'participant_id' in request.session:
+        del request.session['participant_id']
     if request.method == 'POST':
         form = UsabilityQuestionnaireForm(request.POST)
         if form.is_valid():
