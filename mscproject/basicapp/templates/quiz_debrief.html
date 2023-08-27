@@ -4,6 +4,14 @@
 {% block content %}
 <div class="text-center" style="max-width: 80%; margin: 0 auto;">
     <h2>Question {{ question.id }}: Answer</h2>
+    <p>
+        <button class="authenticity-button"
+                style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
+                       color: white; border: none; cursor: default; padding: 8px 12px; border-radius: 10px;"
+                disabled>
+            {{ question.authenticity|upper }}
+        </button>
+    </p>
     <p>{{ question.summary|linebreaksbr|safe }}</p>
     <p>{{ question.details|linebreaksbr|safe }}</p>
     <br>
@@ -13,14 +21,7 @@
     <br>
     <hr style="border: 1px dashed #C0C0C0; color: #FFFFFF; max-width: 60%; margin: 0 auto;">
     <br>
-    <p>
-        <button class="authenticity-button"
-                style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
-                       color: white; border: none; cursor: default; padding: 8px 12px; border-radius: 10px;"
-                disabled>
-            {{ question.authenticity|upper }}
-        </button>
-    </p>
+    <h3>Explanation</h3>
     <p>{{ question.explanation|safe }}</p>
     {% with next_question=question.id|add:1 %}
     <form action="{% url 'quiz_debrief' participant_id=participant.id tutorial_id=next_question %}" method="post">
