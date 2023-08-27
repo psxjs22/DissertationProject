@@ -13,9 +13,6 @@
     <br>
     <hr style="border: 1px dashed #C0C0C0; color: #FFFFFF; max-width: 60%; margin: 0 auto;">
     <br>
-    <h2>Explanation</h2>
-    <br>
-    <p>
     <p>
         <button class="authenticity-button"
                 style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
@@ -25,8 +22,9 @@
         </button>
     </p>
     <br>
+    <h2>Explanation</h2>
+    <br>
     <p>{{ question.explanation|safe }}</p>
-
     {% with next_question=question.id|add:1 %}
     <form action="{% url 'quiz_debrief' participant_id=participant.id tutorial_id=next_question %}" method="post">
         {% csrf_token %}
