@@ -135,14 +135,20 @@ def quiz(request, participant_id, question_number, question_attempt):
 
 def submit_response(request, participant_id, question_number, question_attempt):
     if request.method == 'POST':
-        form = QuizResponseForm(request.POST or None)
+        form = QuizResponseForm(request.POST)
         if form.is_valid():
             # Process and save the response data to the model
             response_data = form.cleaned_data
+
+            if response_data['response']:
+                actual_response = "Real"
+            else:
+                actual_response = "Fake"
+
             response = Response(
                 participant_id=int(participant_id),
                 question_id=int(question_number),
-                response=response_data['response'],
+                response=actual_response,
                 confidence=response_data['confidence'],
                 reason=response_data['reason'],
                 attempt=int(question_attempt),

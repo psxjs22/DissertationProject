@@ -92,10 +92,7 @@ class DemographicsForm(forms.Form):
 
 
 class QuizResponseForm(forms.Form):
-    RESPONSE_CHOICES = [
-        ('real', 'Real'),
-        ('fake', 'Fake'),
-    ]
+    is_real = forms.BooleanField(required=True, initial=True, label="Real")
 
     CONFIDENCE_CHOICES = [
         (1, '1'),
@@ -117,7 +114,7 @@ class QuizResponseForm(forms.Form):
             'data-offstyle': 'success'  # Optional: for red "Fake"
         }),
         label='Do you think the article was more likely to be real or fake?',
-        initial=False  # Default to "Real" (unchecked)
+        initial='Real'  # Default to "Real" (unchecked)
     )
 
     confidence = forms.IntegerField(
