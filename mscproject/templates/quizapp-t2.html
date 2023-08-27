@@ -78,13 +78,32 @@
       font-size: 20px;
       vertical-align: middle;
     }
+    #score-counter {
+        margin-top: 20px;
+        font-size: 18px;
+    }
 
+    #progress-bar-container {
+        width: 100%;
+        background-color: #e0e0e0;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+
+    #progress-bar {
+        width: 0;
+        height: 20px;
+        background-color: #4caf50;
+        border-radius: 4px;
+    }
   </style>
 </head>
 
 <body>
   <div class="app">
+
     <h1>Recap Quiz</h1>
+    <div id="score-counter">Score: 0</div>
     <div class ="quiz">
       <h2 id="question">Question goes here</h2>
       <div id="answer-buttons">
@@ -95,7 +114,9 @@
       </div>
       <button id="next-btn">Next</button>
     </div>
-
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
   </div>
 
 <script>
@@ -162,6 +183,17 @@
     showQuestion();
   }
 
+  function updateScore() {
+    const scoreElement = document.getElementById("score-counter");
+    scoreElement.textContent = `Score: ${score}`;
+  }
+
+  function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    const progress = (currentQuestionIndex / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+  }
+
   function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -200,6 +232,7 @@
         selectedBtn.appendChild(icon);
         selectedBtn.classList.add("quiz-button-correct");
         score++;
+        updateScore();
     } else {
         icon.textContent = "❌"; // Cross icon for incorrect answers
         selectedBtn.appendChild(icon);
@@ -236,6 +269,7 @@ function showScore(){
 
   function handleNextButton(){
     currentQuestionIndex++;
+    updateProgressBar();
     if (currentQuestionIndex < questions.length){
       showQuestion();
     }else{
