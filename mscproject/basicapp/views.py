@@ -140,12 +140,12 @@ def submit_response(request, participant_id, question_number, question_attempt):
             # Process and save the response data to the model
             response_data = form.cleaned_data
             response = Response(
-                participant_id=participant_id,
-                question_id=question_number,
+                participant_id=int(participant_id),
+                question_id=int(question_number),
                 response=response_data['response'],
                 confidence=response_data['confidence'],
                 reason=response_data['reason'],
-                attempt=question_attempt,
+                attempt=int(question_attempt),
             )
             response.save()
 
