@@ -15,7 +15,14 @@
     <br>
     <h2>Explanation</h2>
     <br>
-    <p><span style="text-transform: uppercase; font-weight: bold; color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};">{{ question.authenticity}}</span></p>
+    <p>
+    <button class="authenticity-button"
+            style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
+                   color: white; border: none; cursor: default; padding: 8px 12px;"
+            disabled>
+        {{ question.authenticity|upper }}
+    </button>
+</p>
     <br>
     <p>{{ question.explanation|safe }}</p>
 
