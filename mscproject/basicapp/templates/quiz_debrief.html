@@ -21,9 +21,6 @@
             {{ question.authenticity|upper }}
         </button>
     </p>
-    <br>
-    <h2>Explanation</h2>
-    <br>
     <p>{{ question.explanation|safe }}</p>
     {% with next_question=question.id|add:1 %}
     <form action="{% url 'quiz_debrief' participant_id=participant.id tutorial_id=next_question %}" method="post">
