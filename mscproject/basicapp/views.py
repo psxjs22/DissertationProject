@@ -49,6 +49,8 @@ def consent_create(request):
                 treatment_group_id=treatment_group_id
             )
 
+            request.session['participant_id'] = participant_instance.id
+
             # Redirect to a success page or do something else
             return redirect('demographics', participant_id=participant_instance.id)
 

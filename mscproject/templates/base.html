@@ -31,6 +31,9 @@
                 </li>
             </ul>
           </div>
+            {% if request.session.participant_id %}
+                <span class="ms-auto">Participant ID: {{ request.session.participant_id }}</span>
+            {% endif %}
         </div>
     </nav>
     </header>
