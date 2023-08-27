@@ -139,19 +139,13 @@ def submit_response(request, participant_id, question_number, question_attempt):
         if form.is_valid():
             # Process and save the response data to the model
             response_data = form.cleaned_data
-
-            if response_data['response']:
-                actual_response = "Real"
-            else:
-                actual_response = "Fake"
-
             response = Response(
-                participant_id=int(participant_id),
-                question_id=int(question_number),
-                response=actual_response,
+                participant_id=participant_id,
+                question_id=question_number,
+                response=response_data['response'],
                 confidence=response_data['confidence'],
                 reason=response_data['reason'],
-                attempt=int(question_attempt),
+                attempt=question_attempt,
             )
             response.save()
 

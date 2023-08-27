@@ -92,7 +92,10 @@ class DemographicsForm(forms.Form):
 
 
 class QuizResponseForm(forms.Form):
-    is_real = forms.BooleanField(required=True, initial=True, label="Real")
+    RESPONSE_CHOICES = [
+        ('real', 'Real'),
+        ('fake', 'Fake'),
+    ]
 
     CONFIDENCE_CHOICES = [
         (1, '1'),
@@ -102,45 +105,24 @@ class QuizResponseForm(forms.Form):
         (5, '5'),
     ]
 
-    response = forms.BooleanField(
-        required=True,
-        widget=forms.CheckboxInput(attrs={
-            'class': 'form-check-input',
-            'type': 'checkbox',
-            'data-toggle': 'toggle',
-            'data-on': 'Fake',
-            'data-off': 'Real',
-            'data-onstyle': 'danger',  # Optional: for green "Real"
-            'data-offstyle': 'success'  # Optional: for red "Fake"
-        }),
-        label='Do you think the article was more likely to be real or fake?',
-        initial='Real'  # Default to "Real" (unchecked)
+    response = forms.ChoiceField(
+        choices=[('Real', 'Real'), ('Fake', 'Fake')],
+        widget=forms.RadioSelect,
+        label='Do you think the article was more likely to be real or fake?'
     )
-
     confidence = forms.IntegerField(
-        required=True,
-        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'step': 1}),
-        label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?',
-        initial=3  # Default to a confidence level of 3
+        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'class': 'form-control'}),
+        label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?'
     )
     reason = forms.CharField(
         widget=forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
         label='Provide a brief reason for your choice (optional).',
-        required=False,
-        initial=''  # Default to an empty reason
+        required=False
     )
 
     class Meta:
         model = Response
         fields = ['response', 'confidence', 'reason']
-
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field_name, field in self.fields.items():
-            if isinstance(field.widget, forms.widgets.NumberInput):
-                field.widget = forms.widgets.TextInput(
-                    attrs={'type': 'range', 'min': '1', 'max': '5', 'class': 'form-control-slider', 'step': 1})
 
 
 class UsabilityQuestionnaireForm(forms.ModelForm):

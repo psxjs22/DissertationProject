@@ -1,11 +1,4 @@
 {% extends 'base.html' %}
-<head>
-    <style>
-        .response-form-container ul {
-            list-style-type: none;
-        }
-    </style>
-</head>
 {% load static %}
 
 {% block content %}
@@ -22,36 +15,13 @@
     <br>
     <h2>Quiz</h2>
 
-    <form method="post" class="response-form-container" action="{% url 'submit_response' participant_id=participant_id question_number=question.id question_attempt=question_attempt %}">
+    <form method="post" class="response-form-container" action="{% url 'submit_response' participant_id=participant_id question_number=question.id question_attempt=question_attempt %}" style="max-width: 50%; margin: 0 auto;">
         {% csrf_token %}
         <input type="hidden" name="participant_id" value="{{ participant_id }}">
         <input type="hidden" name="question_number" value="{{ question.id }}">
         <input type="hidden" name="question_attempt" value="{{ question_attempt }}">
-
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="form-group">
-                    <div class="switch">
-                        <h6><label><span class="lever"></span> {{ form.response.label }}</label></h6>
-                            {{ form.response }}
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <h6><label>{{ form.confidence.label }}</label></h6>
-                        {{ form.confidence }}
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <h6><label>{{ form.reason.label }}</label></h6>
-                        {{ form.reason }}
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input type="submit" value="Submit" class="btn btn-dark">
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
     </form>
 </div>
 {% endblock %}

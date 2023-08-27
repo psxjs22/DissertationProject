@@ -123,6 +123,7 @@ class Response(models.Model):
         return f"Response for Participant: {self.participant}, Question: {self.question}, Response: {self.response}"
 
 
+
 class Tutorial(models.Model):
     page_title = models.CharField(max_length=255)
     video_url = models.URLField()
