@@ -135,7 +135,7 @@ def quiz(request, participant_id, question_number, question_attempt):
 
 def submit_response(request, participant_id, question_number, question_attempt):
     if request.method == 'POST':
-        form = QuizResponseForm(request.POST)
+        form = QuizResponseForm(request.POST or None)
         if form.is_valid():
             # Process and save the response data to the model
             response_data = form.cleaned_data
