@@ -128,6 +128,13 @@ class QuizResponseForm(forms.Form):
         model = Response
         fields = ['response', 'confidence', 'reason']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            if isinstance(field.widget, forms.widgets.NumberInput):
+                field.widget = forms.widgets.TextInput(
+                    attrs={'type': 'range', 'min': '1', 'max': '5', 'class': 'form-control-slider', 'step': 1})
+
 
 class UsabilityQuestionnaireForm(forms.ModelForm):
     class Meta:
