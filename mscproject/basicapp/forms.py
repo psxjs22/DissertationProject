@@ -111,9 +111,13 @@ class QuizResponseForm(forms.Form):
         label='Do you think the article was more likely to be real or fake?'
     )
     confidence = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'min': 1, 'max': 5, 'class': 'form-control'}),
-        label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?'
+        required=True,
+        widget=forms.NumberInput(
+            attrs={'type': 'range', 'min': 1, 'max': 5, 'step': 1, 'class': 'form-control-slider'}),
+        label='How confident do you feel about your choice (1 = Not confident, 5 = Very confident)?',
+        initial=3  # Default to a confidence level of 3
     )
+
     reason = forms.CharField(
         widget=forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
         label='Provide a brief reason for your choice (optional).',

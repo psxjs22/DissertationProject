@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+<head>
+    <style>
+        .form-control-slider {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
 {% load static %}
 
 {% block content %}
@@ -20,7 +28,12 @@
         <input type="hidden" name="participant_id" value="{{ participant_id }}">
         <input type="hidden" name="question_number" value="{{ question.id }}">
         <input type="hidden" name="question_attempt" value="{{ question_attempt }}">
-        {{ form.as_p }}
+        {{ form.response.label_tag }}: {{ form.response }}
+        <br>
+        {{ form.confidence.label_tag }}: {{ form.confidence }}
+        <br>
+        {{ form.reason.label_tag }}: {{ form.reason }}
+        <br>
         <button type="submit">Submit</button>
     </form>
 </div>
