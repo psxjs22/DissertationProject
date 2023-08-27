@@ -112,10 +112,10 @@
         <button class="btn">Answer 3</button>
         <button class="btn">Answer 4</button>
       </div>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
       <button id="next-btn">Next</button>
-    </div>
-    <div id="progress-bar-container">
-      <div id="progress-bar"></div>
     </div>
   </div>
 
@@ -194,6 +194,20 @@
     progressBar.style.width = `${progress}%`;
   }
 
+  function getFinalMessage(score) {
+    if (score === 5) {
+      return "Amazing! You got all questions right! Let's see if you can do it again next time!";
+    } else if (score === 4) {
+      return "Great job! You got most of the questions right! Let's see if you can get them all right next time!";
+    } else if (score === 3) {
+      return "Good effort! You got over half of the questions right! Let's see if you can do even better next time!";
+    } else if (score === 2) {
+      return "Keep trying! You got some questions right! Let's see if you can do better next time!";
+    } else {
+      return "Good effort! Let's see if you can do better next time!";
+    }
+  }
+
   function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -257,15 +271,13 @@
 
     // Display next button
     nextButton.style.display = "block";
-}
+  }
 
-
-
-
-function showScore(){
-  resetState();
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-}
+  function showScore(){
+    resetState();
+    const finalMessage = getFinalMessage(score);
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!<br><br>${finalMessage}`;
+  }
 
   function handleNextButton(){
     currentQuestionIndex++;
