@@ -16,13 +16,14 @@
     <h2>Explanation</h2>
     <br>
     <p>
-    <button class="authenticity-button"
-            style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
-                   color: white; border: none; cursor: default; padding: 8px 12px;"
-            disabled>
-        {{ question.authenticity|upper }}
-    </button>
-</p>
+    <p>
+        <button class="authenticity-button"
+                style="background-color: {% if question.authenticity == 'real' %}green{% else %}red{% endif %};
+                       color: white; border: none; cursor: default; padding: 8px 12px; border-radius: 10px;"
+                disabled>
+            {{ question.authenticity|upper }}
+        </button>
+    </p>
     <br>
     <p>{{ question.explanation|safe }}</p>
 
