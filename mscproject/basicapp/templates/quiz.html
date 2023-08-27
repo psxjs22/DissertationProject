@@ -28,11 +28,20 @@
         <input type="hidden" name="participant_id" value="{{ participant_id }}">
         <input type="hidden" name="question_number" value="{{ question.id }}">
         <input type="hidden" name="question_attempt" value="{{ question_attempt }}">
-        {{ form.response.label_tag }}: {{ form.response }}
+
+        <div class="btn-group" role="group">
+            <input type="hidden" name="{{ form.response.name }}" id="{{ form.response.id_for_label }}" value="{{ form.response.value }}">
+            <label class="btn btn-outline-primary {% if form.response.value == 'Real' %}active{% endif %}" id="real-btn">
+                Real
+            </label>
+            <label class="btn btn-outline-primary {% if form.response.value == 'Fake' %}active{% endif %}" id="fake-btn">
+                Fake
+            </label>
+        </div>
+
+        <h6>{{ form.confidence.label_tag }}</h6> {{ form.confidence }}
         <br>
-        {{ form.confidence.label_tag }}: {{ form.confidence }}
-        <br>
-        {{ form.reason.label_tag }}: {{ form.reason }}
+        <h6>{{ form.reason.label_tag }}</h6> {{ form.reason }}
         <br>
         <button type="submit">Submit</button>
     </form>

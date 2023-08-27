@@ -105,11 +105,12 @@ class QuizResponseForm(forms.Form):
         (5, '5'),
     ]
 
-    response = forms.ChoiceField(
-        choices=[('Real', 'Real'), ('Fake', 'Fake')],
-        widget=forms.RadioSelect,
-        label='Do you think the article was more likely to be real or fake?'
+    response = forms.CharField(
+        widget=forms.HiddenInput(),
+        initial='Real',
+        required=True
     )
+
     confidence = forms.IntegerField(
         required=True,
         widget=forms.NumberInput(
