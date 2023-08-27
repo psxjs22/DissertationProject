@@ -46,4 +46,20 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<script>
+    document.getElementById("real-btn").addEventListener('click', function() {
+        let hiddenInput = document.getElementById("{{ form.response.id_for_label }}");
+        this.classList.add('active');
+        document.getElementById("fake-btn").classList.remove('active');
+        hiddenInput.value = 'Real';
+    });
+
+    document.getElementById("fake-btn").addEventListener('click', function() {
+        let hiddenInput = document.getElementById("{{ form.response.id_for_label }}");
+        this.classList.add('active');
+        document.getElementById("real-btn").classList.remove('active');
+        hiddenInput.value = 'Fake';
+    });
+</script>
 {% endblock %}
