@@ -39,23 +39,23 @@ ETHNICITY_LIST = (('Asian or Asian British',
                     ('4', 'Chinese'),
                     ('5', 'Any other Asian background'))),
                 ('Black or Black British',
-                   (('1', 'Caribbean'),
-                    ('2', 'African'),
-                    ('3', 'Any other Black, Black British or Caribbean background'))),
+                   (('6', 'Caribbean'),
+                    ('7', 'African'),
+                    ('8', 'Any other Black, Black British or Caribbean background'))),
                 ('Mixed or multiple ethnic groups',
-                   (('1', 'White and Black Caribbean'),
-                    ('2', 'White and Black African'),
-                    ('3', 'White and Asian'),
-                    ('4', 'Any other Mixed or multiple ethnic background'))),
+                   (('9', 'White and Black Caribbean'),
+                    ('10', 'White and Black African'),
+                    ('11', 'White and Asian'),
+                    ('12', 'Any other Mixed or multiple ethnic background'))),
                 ('White',
-                   (('1', 'English, Welsh, Scottish, Northern Irish or British'),
-                    ('2', 'Irish'),
-                    ('3', 'Gypsy or Irish Traveller'),
-                    ('4', 'Roma'),
-                    ('5', 'Any other White background'))),
+                   (('13', 'English, Welsh, Scottish, Northern Irish or British'),
+                    ('14', 'Irish'),
+                    ('15', 'Gypsy or Irish Traveller'),
+                    ('16', 'Roma'),
+                    ('17', 'Any other White background'))),
                 ('Other ethnic group',
-                   (('1', 'Arab'),
-                    ('2', 'Any other ethnic group'))))
+                   (('18', 'Arab'),
+                    ('19', 'Any other ethnic group'))))
 
 OCCUPATION_LIST = (['1', 'Managers, Directors and Senior Officials'],
                    ['2', 'Professional Occupations'],
@@ -75,7 +75,7 @@ OCCUPATION_LIST = (['1', 'Managers, Directors and Senior Officials'],
 EDUCATION_LIST = (['1', 'Primary School'],
                   ['2', 'Secondary School'],
                   ['3', 'Higher or secondary or further education (A-levels, BTEC, professional certificate.)'],
-                  ['4', 'University, of equivalent'],
+                  ['4', 'University, or equivalent'],
                   ['5', 'Post-graduate degree'],
                   ['6', 'Other'],
                   ['7', 'Prefer not to say'])
@@ -162,8 +162,6 @@ class UsabilityQuestionnaire(models.Model):
     expected_responses = models.PositiveIntegerField()
     efficient_use = models.PositiveIntegerField()
     clear_useful_messages = models.PositiveIntegerField()
-
-    # Other fields (participant, timestamp, etc.) can be added here
 
     def __str__(self):
         return f"Usability Questionnaire - Participant {self.id}"

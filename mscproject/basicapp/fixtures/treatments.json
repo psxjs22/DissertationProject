@@ -12,7 +12,7 @@
     "pk": 2,
     "fields": {
       "name": "GS1",
-      "description": "Tutorial with gamification strategy XXX"
+      "description": "Tutorial with gamification strategy 1. Implementing a quiz, with scores, instant feedback and a progress bar."
     }
   }
 ]
